@@ -4,6 +4,7 @@ import imageUrlBuilder from '@sanity/image-url'
 import { client } from '../../lib/sanity.client'
 
 const builder = imageUrlBuilder(client)
+
 export default function SubRoutes() {
   return (
     <div className="mx-10">
@@ -14,7 +15,7 @@ export default function SubRoutes() {
           href="/norge-pa-langs"
           imageUrl={builder
             .image(
-              'https://cdn.sanity.io/images/14nn8v5u/production/f73e8299581b455b9a1d83764d4d2939160b34d5-3024x4032.jpg'
+              'https://cdn.sanity.io/images/14nn8v5u/production/c722327102b506b0852c8e37daa55bd4ffde6374-3024x2516.jpg'
             )
             .url()}
           name="Norge på langs"
@@ -37,6 +38,18 @@ export default function SubRoutes() {
             .url()}
           name="Afrika"
         />
+      </div>
+      <div className="h-96">
+        <h1>subroute</h1>
+      </div>
+      <div className="h-96">
+        <h1>subroute</h1>
+      </div>
+      <div className="h-96">
+        <h1>subroute</h1>
+      </div>
+      <div className="h-96">
+        <h1>subroute</h1>
       </div>
     </div>
   )

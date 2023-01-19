@@ -9,22 +9,6 @@ export default function Page() {
       <div className="max-w-7xl mx-auto">
         <SubRoutes />
       </div>
-
-      <div className="h-96 m-24">
-        <h1>Page</h1>
-      </div>
-
-      <div className="h-96 m-24">
-        <h1>Page</h1>
-      </div>
-
-      <div className="h-96 m-24">
-        <h1>Page</h1>
-      </div>
-
-      <div className="h-96 m-24">
-        <h1>Page</h1>
-      </div>
     </div>
   )
 }

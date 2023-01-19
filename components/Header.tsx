@@ -12,7 +12,7 @@ export default function Header() {
     <div
       className={`sticky z-10 ${
         scrollDir === 'down' ? '-top-20' : 'top-0'
-      } h-20transition-all duration-500 p-6`}
+      } h-20transition-all duration-500 p-6 bg-white bg-opacity-25 mb`}
     >
       <header>
         <div className="flex flex-row justify-between">
@@ -25,19 +25,23 @@ export default function Header() {
               Home
             </Link>
             <Link
-              className={`${pathname == '/norge-pa-langs' ? 'text-yellow-500' : 'text-black'}`}
+              className={`${
+                pathname?.includes('/norge-pa-langs') ? 'text-yellow-500' : 'text-black'
+              }`}
               href={'/norge-pa-langs'}
             >
               Norge på langs
             </Link>
             <Link
-              className={`${pathname == '/afrika' ? 'text-yellow-500' : 'text-black'}`}
+              className={`${pathname?.includes('/afrika') ? 'text-yellow-500' : 'text-black'}`}
               href={'/afrika'}
             >
               Afrika
             </Link>
             <Link
-              className={`${pathname == '/mindre-turer' ? 'text-yellow-500' : 'text-black'}`}
+              className={`${
+                pathname?.includes('/mindre-turer') ? 'text-yellow-500' : 'text-black'
+              }`}
               href={'/mindre-turer'}
             >
               Mindre turer

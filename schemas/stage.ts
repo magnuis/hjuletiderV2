@@ -6,13 +6,22 @@ export default defineType({
   type: 'document',
   fields: [
     defineField({
-      name: 'start',
-      title: 'Start',
+      name: 'title',
+      title: 'Title',
       type: 'string',
     }),
     defineField({
-      name: 'end',
-      title: 'End',
+      name: 'slug',
+      title: 'Slug',
+      type: 'slug',
+      options: {
+        source: 'title',
+        maxLength: 96,
+      },
+    }),
+    defineField({
+      name: 'description',
+      title: 'Description',
       type: 'string',
     }),
     defineField({
@@ -22,8 +31,16 @@ export default defineType({
     }),
     defineField({
       name: 'date',
-      title: 'Date',
+      title: 'Dato',
       type: 'datetime',
+    }),
+    defineField({
+      name: 'mainImage',
+      title: 'Main image',
+      type: 'image',
+      options: {
+        hotspot: true,
+      },
     }),
   ],
   preview: {

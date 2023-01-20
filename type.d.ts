@@ -19,8 +19,13 @@ interface Stage extends Base {
 }
 
 interface stravaData {
-  points: number[]
+  id: string
+  name: string
+  date: string
+  points: string
   averageSpeed: number
   distance: number
   totalElevationGain: number
+  start_latlng: number[]
+  end_latlng: number[]
 }

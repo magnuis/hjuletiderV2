@@ -42,6 +42,16 @@ export default defineType({
         hotspot: true,
       },
     }),
+    defineField({
+      name: 'images',
+      title: 'Images',
+      type: 'array',
+      of: [
+        {
+          type: 'image',
+        },
+      ],
+    }),
   ],
   preview: {
     select: {

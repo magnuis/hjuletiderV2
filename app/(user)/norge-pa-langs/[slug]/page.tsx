@@ -4,8 +4,11 @@ import imageUrlBuilder from '@sanity/image-url'
 import { client } from '../../../../lib/sanity.client'
 import { groq } from 'next-sanity'
 import { concatStageData, getActivities } from '../../../../lib/strava'
-import { GiMountainRoad, GiPathDistance } from 'react-icons/gi'
+import { GiMountainRoad, GiPathDistance, GiCalendar } from 'react-icons/gi'
 import { IoMdBicycle } from 'react-icons/io'
+import BottomStageNavigation from '../../../../components/norge-pa-langs/stagePage/BottomStageNavigation'
+import NotFound from '../../../../components/NotFoundPage'
+import MapCard from '../../../../components/norge-pa-langs/MapCard'
 
 const builder = imageUrlBuilder(client)
 
@@ -36,6 +39,13 @@ export default async function StagePage({ params: { slug } }: StageProps) {
     }`
 
   const stage: Stage = await client.fetch(query, { slug })
+  if (!stage) {
+    return (
+      <div className="relative max-w-7xl mx-auto ">
+        <NotFound />
+      </div>
+    )
+  }
   const strava: stravaData[] = await getActivities()
   const stravaStage = strava.filter((s) => s.name === 'Dag_' + stage.dayNo)
   const filteredStravaStage = stravaStage.length > 1 ? concatStageData(stravaStage) : stravaStage[0]
@@ -53,6 +63,10 @@ export default async function StagePage({ params: { slug } }: StageProps) {
       </div>
       <div className="mx-10 flex flex-col space-y-8 ">
         <div className=" flex flex-col space-y-2 items-center sm:flex-row justify-between mx-10">
+          <span className="flex flex-row items-center space-x-2">
+            <GiCalendar className="text-gray-900 h-8 w-8" />
+            <p className="bottom-0 text-md">{'Dag ' + stage.dayNo}</p>
+          </span>
           <span className="flex flex-row items-center space-x-2">
             <GiPathDistance className="text-gray-900 h-8 w-8" />
             <p className="bottom-0 text-md">
@@ -75,6 +89,12 @@ export default async function StagePage({ params: { slug } }: StageProps) {
         <hr className="border-black" />
         <h1 className="text-5xl font-bold mx-auto">{stage.title}</h1>
         <p className="text-xl ">{stage.description}</p>
+      </div>
+      <div>
+        <MapCard strava={filteredStravaStage} />
+      </div>
+      <div className="relative mx-auto flex flex-row space-x-10">
+        <BottomStageNavigation dayNo={stage.dayNo} />
       </div>
     </div>
   )

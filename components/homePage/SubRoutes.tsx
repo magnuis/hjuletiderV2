@@ -8,6 +8,16 @@ const builder = imageUrlBuilder(client)
 export default function SubRoutes() {
   return (
     <div className="mx-10">
+      <span className="m-10 text-2xl">
+        <p>Livet er en reise.</p>
+        <br />
+        <p>
+          Hver og en av oss reiser på hver vår måte. Vi oppdager og opplever nye ting, med både
+          gamle og nye bekjentskaper. På denne siden kan du følge med på min reise.
+        </p>
+        <br />
+        <p>Bli med da vel!</p>
+      </span>
       <hr className="border-black mb-10" />
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-y-8 gap-x-8">

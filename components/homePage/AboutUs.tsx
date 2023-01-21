@@ -6,8 +6,8 @@ const builder = imageUrlBuilder(client)
 
 export default function AboutUs() {
   return (
-    <div className="mb-16 h-96 max-h-full">
-      <div className="relative h-full">
+    <div className=" max-h-full">
+      <div className="relative h-96">
         <Image
           priority
           className="object-center object-cover absolute top-0 h-full w-full opacity-100"
@@ -19,12 +19,6 @@ export default function AboutUs() {
           alt="About us"
           fill
         />
-        <div className="absolute bottom-0 w-full text-white p-5 flex font-bold">
-          <span>
-            <p>Livet er en reise. </p>
-            <p>Bli med!</p>
-          </span>
-        </div>
       </div>
     </div>
   )

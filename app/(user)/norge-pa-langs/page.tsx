@@ -5,6 +5,7 @@ import ClientSideRoute from '../../../components/ClientSideRoute'
 import StageCard from '../../../components/StageCard'
 import { client } from '../../../lib/sanity.client'
 import { Stage } from '../../../type'
+import { inter } from '../../../lib/fonts'
 
 const builder = imageUrlBuilder(client)
 
@@ -33,7 +34,7 @@ export default async function Page() {
       </div>
       <div className="max-w-7xl mx-10 flex flex-col space-y-8">
         <hr className="border-black" />
-        <p>
+        <p className={`${inter.className} text-lg lg:text-xl`}>
           Sommeren 2022 syklet vi Norge på langs! I løpet av 25 dager syklet vi over 2700 km, og
           fikk kjenne på alt det en Norge-sommer har å by på av vær og vind. Vi full storm over
           Kvænangsfjellet, plaskregn i Foldereid og strålende sol i Dølemo. Det var til tider både
@@ -42,7 +43,7 @@ export default async function Page() {
           etappene for å lese mer om de ulike etappene.{' '}
         </p>
         <hr className="border-black" />
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-10 gap-y-16 pb-24">
+        <div className={`grid grid-cols-1 md:grid-cols-2 gap-10 gap-y-16 pb-24 ${inter.className}`}>
           {stages.map((stage: Stage) => (
             <ClientSideRoute key={stage._id} route={`norge-pa-langs/${stage.slug.current}`}>
               <StageCard stage={stage} />

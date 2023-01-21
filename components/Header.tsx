@@ -4,25 +4,29 @@ import Link from 'next/link'
 import { useScrollDirection } from '../hooks/UseScrollDirection'
 import { FaBicycle } from 'react-icons/fa'
 import { usePathname } from 'next/navigation'
+import { inter } from '../lib/fonts'
 
 export default function Header() {
   const scrollDir = useScrollDirection()
   const pathname = usePathname()
   return (
     <div
-      className={`sticky z-10 ${
-        scrollDir === 'down' ? '-top-20' : 'top-0'
-      } h-20transition-all duration-500 p-6 bg-white bg-opacity-25 mb`}
+      className={` sticky z-10 ${
+        scrollDir === 'down' ? '-top-30' : 'top-0'
+      } h-30 transition-all duration-500 p-6 bg-white bg-opacity-50`}
     >
       <header>
-        <div className="flex flex-row justify-between">
+        <div className="flex flex-row justify-between text-xl ">
           <Link href={'/'}>
             {' '}
             <FaBicycle className="text-gray-900 h-12 w-12" />
           </Link>
           <div className="flex items-center gap-2">
-            <Link className={`${pathname == '/' ? 'text-yellow-500' : 'text-black'}`} href={'/'}>
-              Home
+            <Link
+              className={`${pathname == '/' ? 'text-yellow-500' : 'text-black'} ${inter.className}`}
+              href={'/'}
+            >
+              HJEM
             </Link>
             <Link
               className={`${
@@ -30,13 +34,13 @@ export default function Header() {
               }`}
               href={'/norge-pa-langs'}
             >
-              Norge på langs
+              NORGE PÅ LANGS
             </Link>
             <Link
               className={`${pathname?.includes('/afrika') ? 'text-yellow-500' : 'text-black'}`}
               href={'/afrika'}
             >
-              Afrika
+              AFRIKA
             </Link>
             <Link
               className={`${
@@ -44,7 +48,7 @@ export default function Header() {
               }`}
               href={'/mindre-turer'}
             >
-              Mindre turer
+              MINDRE TURER
             </Link>
           </div>
         </div>

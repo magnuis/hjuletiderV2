@@ -1,4 +1,5 @@
 import { stravaData } from '../type'
+var polyline = require('@mapbox/polyline')
 
 const clientId = process.env.NEXT_STRAVA_CLIENT_ID
 const clientSecret = process.env.NEXT_STRAVA_CLIENT_SECRET
@@ -32,6 +33,7 @@ export const getActivities = async () => {
   const json = await response.json()
 
   return json.map((activity: any) => {
+    const points = getPolyPoints(activity.map.summary_polyline)
     return {
       id: activity.id,
       name: activity.name,
@@ -41,14 +43,13 @@ export const getActivities = async () => {
       totalElevationGain: activity.total_elevation_gain,
       start_latlng: activity.start_latlng,
       end_latlng: activity.end_latlng,
-      points: activity.map.summary_polyline,
+      points: points,
     }
   })
 }
 
 export const getActivityById = async (id: string) => {
   const { access_token: accessToken } = await getAccessToken().then((res) => res.json())
-  console.log('TILGANG', accessToken)
   const response = await fetch(`${ACTIVITY_ENDPOINT}/activities/${id}?access_token=${accessToken}`)
   const json = await response.json()
 
@@ -64,7 +65,7 @@ export function concatStageData(stages: stravaData[]): stravaData {
     id: '',
     name: '',
     date: '',
-    points: '',
+    points: [],
     averageSpeed: 0,
     distance: 0,
     totalElevationGain: 0,
@@ -73,16 +74,23 @@ export function concatStageData(stages: stravaData[]): stravaData {
   }
 
   stages.forEach((s) => {
+    console.log('STAGE: ', stage.start_latlng)
+    console.log('S: ', s.start_latlng)
     stage.id = s.id
     stage.name = s.name
     stage.date = s.date
-    stage.points = stage.points + s.points
+    stage.points = s.points.concat(stage.points)
     stage.averageSpeed = stage.averageSpeed + s.averageSpeed / 2
     stage.distance = stage.distance + s.distance
     stage.totalElevationGain = stage.totalElevationGain + s.totalElevationGain
-    stage.start_latlng.length == 0 ? s.start_latlng : stage.start_latlng
+    stage.start_latlng = s.start_latlng
     stage.end_latlng = s.end_latlng
+    console.log('STAGE_SECOND: ', stage.start_latlng)
   })
 
   return stage
+}
+
+const getPolyPoints = (points: string) => {
+  return polyline.decode(points)
 }

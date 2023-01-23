@@ -9,12 +9,14 @@ import { IoMdBicycle } from 'react-icons/io'
 import BottomStageNavigation from '../../../../components/norge-pa-langs/stagePage/BottomStageNavigation'
 import NotFound from '../../../../components/NotFoundPage'
 import MapCard from '../../../../components/norge-pa-langs/MapCard'
+import { getHistoricalWeather } from '../../../../lib/weather'
 
 const builder = imageUrlBuilder(client)
 
 interface StageProps {
   params: {
     slug: string
+    stravaData: stravaData
   }
 }
 
@@ -32,7 +34,7 @@ export async function generateStaticParams() {
   }))
 }
 
-export default async function StagePage({ params: { slug } }: StageProps) {
+export default async function StagePage({ params: { slug, stravaData } }: StageProps) {
   const query = groq`
     *[_type=='stage' && slug.current == $slug][0] {
         ...,
@@ -49,6 +51,12 @@ export default async function StagePage({ params: { slug } }: StageProps) {
   const strava: stravaData[] = await getActivities()
   const stravaStage = strava.filter((s) => s.name === 'Dag_' + stage.dayNo)
   const filteredStravaStage = stravaStage.length > 1 ? concatStageData(stravaStage) : stravaStage[0]
+
+  // const weatherData = getHistoricalWeather({
+  //   lat: filteredStravaStage.start_latlng[0],
+  //   long: filteredStravaStage.start_latlng[1],
+  //   date: filteredStravaStage.date,
+  // })
 
   return (
     <div className="relative max-w-7xl mx-auto flex flex-col space-y-6 mb-40">

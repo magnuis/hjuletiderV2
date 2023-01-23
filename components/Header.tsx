@@ -23,29 +23,27 @@ export default function Header() {
           </Link>
           <div className="flex items-center gap-2">
             <Link
-              className={`${pathname == '/' ? 'text-yellow-500' : 'text-black'} ${inter.className}`}
+              className={`${pathname == '/' ? 'text-blue-600' : 'text-black'} ${inter.className}`}
               href={'/'}
             >
               HJEM
             </Link>
             <Link
               className={`${
-                pathname?.includes('/norge-pa-langs') ? 'text-yellow-500' : 'text-black'
+                pathname?.includes('/norge-pa-langs') ? 'text-blue-600' : 'text-black'
               }`}
               href={'/norge-pa-langs'}
             >
               NORGE PÅ LANGS
             </Link>
             <Link
-              className={`${pathname?.includes('/afrika') ? 'text-yellow-500' : 'text-black'}`}
+              className={`${pathname?.includes('/afrika') ? 'text-blue-600' : 'text-black'}`}
               href={'/afrika'}
             >
               AFRIKA
             </Link>
             <Link
-              className={`${
-                pathname?.includes('/mindre-turer') ? 'text-yellow-500' : 'text-black'
-              }`}
+              className={`${pathname?.includes('/mindre-turer') ? 'text-blue-600' : 'text-black'}`}
               href={'/mindre-turer'}
             >
               MINDRE TURER

@@ -22,7 +22,7 @@ interface stravaData {
   id: string
   name: string
   date: string
-  points: string
+  points: [number, number][]
   averageSpeed: number
   distance: number
   totalElevationGain: number

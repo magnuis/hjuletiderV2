@@ -1,0 +1,12 @@
+{
+  "days": [
+    {
+      "temp": 12,
+      "windgust": 62.3,
+      "windspeed": 37.4,
+      "winddir": 229,
+      "conditions": "Rain, Overcast",
+      "description": "Cloudy skies throughout the day with rain."
+    }
+  ]
+}

@@ -6,7 +6,7 @@ interface WeatherProps {
   date: string
 }
 
-const weatherApiKey = process.env.NEXT_WEATHER_KEY
+const weatherApiKey = process.env.NEXT_VISUAL_CROSSING_KEY
 const getWeatherToken = () => {
   return fetch(
     `curl -d 'client_id=<client ID>&client_secret=<client secret>&grant_type=client_credentials' 'https://frost.met.no/auth/accessToken'`
@@ -25,7 +25,8 @@ export const getHistoricalWeather = async ({ lat, long, date }: WeatherProps) =>
   console.log('END', endDateString)
 
   const weatherData = await fetch(
-    `https://history.openweathermap.org/data/2.5/history/city?lat=${lat}&lon=${long}&type=hour&start=${startDateString}&end=${endDateString}&appid=${weatherApiKey}`
+    `https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${lat}%2C${long}/${startDateString}/${startDateString}?unitGroup=metric&key=${weatherApiKey}&contentType=json
+`
   ).then((res) => res.json())
   //   const weatherData = await fetch(
   //     `https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/weatherdata/history?&aggregateHours=24&startDateTime=${moment(

@@ -74,8 +74,6 @@ export function concatStageData(stages: stravaData[]): stravaData {
   }
 
   stages.forEach((s) => {
-    console.log('STAGE: ', stage.start_latlng)
-    console.log('S: ', s.start_latlng)
     stage.id = s.id
     stage.name = s.name
     stage.date = s.date
@@ -85,10 +83,21 @@ export function concatStageData(stages: stravaData[]): stravaData {
     stage.totalElevationGain = stage.totalElevationGain + s.totalElevationGain
     stage.start_latlng = s.start_latlng
     stage.end_latlng = s.end_latlng
-    console.log('STAGE_SECOND: ', stage.start_latlng)
   })
 
   return stage
+}
+
+export const concatPolyPoints = (stages: stravaData[]) => {
+  const p = ['a', 'b']
+  const p2 = ['c']
+
+  let points: any[] = []
+
+  stages.forEach((s) => {
+    points = points.concat(s.points)
+  })
+  return points
 }
 
 const getPolyPoints = (points: string) => {

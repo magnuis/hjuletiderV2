@@ -8,7 +8,7 @@ import { GiMountainRoad, GiPathDistance, GiCalendar } from 'react-icons/gi'
 import { IoMdBicycle } from 'react-icons/io'
 import BottomStageNavigation from '../../../../components/norge-pa-langs/stagePage/BottomStageNavigation'
 import NotFound from '../../../../components/NotFoundPage'
-import MapCard from '../../../../components/norge-pa-langs/MapCard'
+import { MapCard } from '../../../../components/norge-pa-langs/MapCard'
 import { getHistoricalWeather } from '../../../../lib/weather'
 
 const builder = imageUrlBuilder(client)

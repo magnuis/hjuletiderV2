@@ -2,13 +2,15 @@ import { MapContainer, TileLayer, useMap, Polyline } from 'react-leaflet'
 import 'leaflet/dist/leaflet.css'
 import 'leaflet-defaulticon-compatibility/dist/leaflet-defaulticon-compatibility.css'
 import 'leaflet-defaulticon-compatibility'
+import { getHistoricalWeather } from '../../../lib/weather'
 
 interface MapProps {
   center: [number, number]
   points: [number, number][]
+  zoom: number
 }
 
-const Map = ({ center, points }: MapProps) => {
+const Map = ({ center, points, zoom }: MapProps) => {
   //   function SetViewOnClick({ coords }) {
   //     const map = useMap()
   //     if (coords != null) {
@@ -22,7 +24,7 @@ const Map = ({ center, points }: MapProps) => {
   return (
     <MapContainer
       center={center}
-      zoom={8}
+      zoom={zoom}
       scrollWheelZoom={false}
       style={{ height: '100%', width: '100%' }}
     >

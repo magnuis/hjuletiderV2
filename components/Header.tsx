@@ -11,12 +11,12 @@ export default function Header() {
   const pathname = usePathname()
   return (
     <div
-      className={` sticky z-10 ${
+      className={`sticky z-10 ${
         scrollDir === 'down' ? '-top-30' : 'top-0'
-      } h-30 transition-all duration-500 p-6 bg-white bg-opacity-50`}
+      } h-30 transition-all duration-500 p-6 bg-white bg-opacity-50 `}
     >
       <header>
-        <div className="flex flex-row justify-between text-xl ">
+        <div className="flex flex-row justify-between text-xl">
           <Link href={'/'}>
             {' '}
             <FaBicycle className="text-gray-900 h-12 w-12" />

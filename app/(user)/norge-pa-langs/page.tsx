@@ -34,14 +34,28 @@ export default async function Page() {
       </div>
       <div className="max-w-7xl mx-10 flex flex-col space-y-8">
         <hr className="border-black" />
-        <p className={`${inter.className} text-lg lg:text-xl`}>
-          Sommeren 2022 syklet vi Norge på langs! I løpet av 25 dager syklet vi over 2700 km, og
-          fikk kjenne på alt det en Norge-sommer har å by på av vær og vind. Vi full storm over
-          Kvænangsfjellet, plaskregn i Foldereid og strålende sol i Dølemo. Det var til tider både
-          fysisk og mentalt hardt, men sammen kom vi oss hele veien fra Nordkapp til Lindesnes.
-          Dette var virkelig en opplevelse for livet! Under kan du klikke deg inn på de ulike
-          etappene for å lese mer om de ulike etappene.{' '}
-        </p>
+        <span className={`${inter.className} text-lg lg:text-xl`}>
+          <p className="text-5xl font-bold ">Norge på langs</p>
+          <br />
+          <p>
+            Sommeren 2022 syklet vi Norge på langs! I løpet av 25 dager syklet vi over 2700 km, og
+            fikk kjenne på alt det en Norge-sommer har å by på av vær og vind. Vi full storm over
+            Kvænangsfjellet, plaskregn i Foldereid og strålende sol i Dølemo. Det var til tider både
+            fysisk og mentalt hardt, men sammen kom vi oss hele veien fra Nordkapp til Lindesnes.
+            Dette var virkelig en opplevelse for livet! Under kan du klikke deg inn på de ulike
+            etappene for å lese mer om de ulike etappene.{' '}
+          </p>
+          <br />
+          <span className="flex flex-row">
+            <p>
+              Inne på hver etappe kan du se ruta for den aktuelle dagen. Dersom du ønsker å se hele
+              ruta kan du
+            </p>
+            <ClientSideRoute route={`norge-pa-langs/ruta`}>
+              <p className="ml-1 underline text-blue-700"> klikke her</p>
+            </ClientSideRoute>
+          </span>
+        </span>
         <hr className="border-black" />
         <div className={`grid grid-cols-1 md:grid-cols-2 gap-10 gap-y-16 pb-24 ${inter.className}`}>
           {stages.map((stage: Stage) => (

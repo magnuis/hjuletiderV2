@@ -6,6 +6,7 @@ import StageCard from '../../../components/StageCard'
 import { client } from '../../../lib/sanity.client'
 import { Stage } from '../../../type'
 import { inter } from '../../../lib/fonts'
+import Link from 'next/link'
 
 const builder = imageUrlBuilder(client)
 
@@ -49,11 +50,11 @@ export default async function Page() {
           <span className="flex flex-row">
             <p>
               Inne på hver etappe kan du se ruta for den aktuelle dagen. Dersom du ønsker å se hele
-              ruta kan du
+              ruta kan du heller sjekke ut
+              <Link href={`norge-pa-langs/ruta`}>
+                <span className="ml-1 underline text-blue-700">dette kartet</span>
+              </Link>
             </p>
-            <ClientSideRoute route={`norge-pa-langs/ruta`}>
-              <p className="ml-1 underline text-blue-700"> klikke her</p>
-            </ClientSideRoute>
           </span>
         </span>
         <hr className="border-black" />

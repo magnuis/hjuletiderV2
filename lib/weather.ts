@@ -1,4 +1,5 @@
 import moment from 'moment'
+import { Weather } from '../type'
 
 interface WeatherProps {
   lat: number
@@ -12,28 +13,34 @@ const getWeatherToken = () => {
     `curl -d 'client_id=<client ID>&client_secret=<client secret>&grant_type=client_credentials' 'https://frost.met.no/auth/accessToken'`
   ).then((res) => res.json())
 }
-export const getHistoricalWeather = async ({ lat, long, date }: WeatherProps) => {
+export const getHistoricalWeather = async ({ lat, long, date }: WeatherProps): Promise<Weather> => {
   const startDate = new Date(date).valueOf()
   const endDate = startDate + 24 * 60 * 60 * 1000 + 1
 
   const startDateString = moment(startDate).format('YYYY-MM-DDTHH:mm:ss')
   const endDateString = moment(endDate).format('YYYY-MM-DDTHH:mm:ss')
 
-  console.log(date)
+  // console.log(date)
 
-  console.log('START', startDateString)
-  console.log('END', endDateString)
+  // console.log('START', startDateString)
+  // console.log('END', endDateString)
 
   const weatherData = await fetch(
     `https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${lat}%2C${long}/${startDateString}/${startDateString}?unitGroup=metric&key=${weatherApiKey}&contentType=json
 `
-  ).then((res) => res.json())
-  //   const weatherData = await fetch(
-  //     `https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/weatherdata/history?&aggregateHours=24&startDateTime=${moment(
-  //       startDate
-  //     ).format('YYYY-MM-DDTHH:mm:ss')}&endDateTime=${moment(endDate).format(
-  //       'YYYY-MM-DDTHH:mm:ss'
-  //     )}&unitGroup=metric&contentType=json&dayStartTime=0:0:00&dayEndTime=0:0:00&location=${lat},${long}&key=${weatherApiKey}`
-  //   ).then((res) => res.json())
-  console.log('WEATHER', weatherData)
+  )
+    .then((res) => res.json())
+    .then((res) => {
+      return {
+        temperature: res.days[0].temp,
+        feelsLikeMin: res.days[0].feelsLikeMin,
+        windspd: res.days[0].windspd,
+        windgust: res.days[0].windgust,
+        winddir: res.days[0].winddir,
+        description: res.days[0].description,
+        precip: res.days[0].precip,
+      }
+    })
+
+  return weatherData
 }

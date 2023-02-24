@@ -29,3 +29,13 @@ interface stravaData {
   start_latlng: number[]
   end_latlng: number[]
 }
+
+type Weather = {
+  temperature: number
+  feelsLikeMin: number
+  windspd: number
+  windgust: number
+  winddir: number
+  description: string
+  precip: number
+}

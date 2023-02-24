@@ -52,11 +52,11 @@ export default async function StagePage({ params: { slug, stravaData } }: StageP
   const stravaStage = strava.filter((s) => s.name === 'Dag_' + stage.dayNo)
   const filteredStravaStage = stravaStage.length > 1 ? concatStageData(stravaStage) : stravaStage[0]
 
-  // const weatherData = getHistoricalWeather({
-  //   lat: filteredStravaStage.start_latlng[0],
-  //   long: filteredStravaStage.start_latlng[1],
-  //   date: filteredStravaStage.date,
-  // })
+  const weatherData = await getHistoricalWeather({
+    lat: filteredStravaStage.start_latlng[0],
+    long: filteredStravaStage.start_latlng[1],
+    date: filteredStravaStage.date,
+  })
 
   return (
     <div className="relative max-w-7xl mx-auto flex flex-col space-y-6 mb-40">
@@ -97,6 +97,18 @@ export default async function StagePage({ params: { slug, stravaData } }: StageP
         <hr className="border-black" />
         <h1 className="text-5xl font-bold mx-auto">{stage.title}</h1>
         <p className="text-xl ">{stage.description}</p>
+        <h3 className="mx-auto text-3xl font-bold">{`Været i dag`}</h3>
+        <ul>
+          <li>
+            <p>{`Temperaturen i dag lå på ${weatherData.temperature}°C, men føltes mer som ${weatherData.feelsLikeMin}.`}</p>
+          </li>
+          <li>
+            <p>{`Vinden blåste ${weatherData.windspd}m/s i dag, men var oppe i ${weatherData.windgust} i kastene.`}</p>
+          </li>
+          <li>
+            <p>{`Været i dag er beskrevet som "${weatherData.description}". Totalt kom det ${weatherData.precip}mm nedbør.`}</p>
+          </li>
+        </ul>
       </div>
       <div>
         <MapCard strava={filteredStravaStage} />

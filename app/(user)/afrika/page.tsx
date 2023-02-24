@@ -1,10 +1,7 @@
 import imageUrlBuilder from '@sanity/image-url'
-import { groq } from 'next-sanity'
 import Image from 'next/image'
-import StageCard from '../../../components/StageCard'
 import { client } from '../../../lib/sanity.client'
-import { Stage } from '../../../type'
-import { inter } from '../../../lib/fonts'
+
 import Link from 'next/link'
 
 const builder = imageUrlBuilder(client)

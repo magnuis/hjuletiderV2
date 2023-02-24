@@ -1,7 +1,6 @@
 import imageUrlBuilder from '@sanity/image-url'
 import { groq } from 'next-sanity'
 import Image from 'next/image'
-import ClientSideRoute from '../../../components/ClientSideRoute'
 import StageCard from '../../../components/StageCard'
 import { client } from '../../../lib/sanity.client'
 import { Stage } from '../../../type'
@@ -60,9 +59,9 @@ export default async function Page() {
         <hr className="border-black" />
         <div className={`grid grid-cols-1 md:grid-cols-2 gap-10 gap-y-16 pb-24 ${inter.className}`}>
           {stages.map((stage: Stage) => (
-            <ClientSideRoute key={stage._id} route={`norge-pa-langs/${stage.slug.current}`}>
+            <Link key={stage._id} href={`norge-pa-langs/${stage.slug.current}`}>
               <StageCard stage={stage} />
-            </ClientSideRoute>
+            </Link>
           ))}
         </div>
       </div>

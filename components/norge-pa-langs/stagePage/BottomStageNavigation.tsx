@@ -1,4 +1,4 @@
-import ClientSideRoute from '../../ClientSideRoute'
+import Link from 'next/link'
 import { HiOutlineArrowSmLeft, HiOutlineArrowSmRight } from 'react-icons/hi'
 
 interface BottomStageNavigationProps {
@@ -14,12 +14,12 @@ export default function BottomStageNavigation({ dayNo }: BottomStageNavigationPr
         </span>
       )}
       {dayNo > 1 && (
-        <ClientSideRoute route={`norge-pa-langs/dag-${dayNo - 1}`}>
+        <Link href={`norge-pa-langs/dag-${dayNo - 1}`}>
           <span className="flex flex-row mt-56 space-x-1 items-center">
             <HiOutlineArrowSmLeft className="h-8 w-8" />
             <p className="text-lg">Dagen før</p>
           </span>
-        </ClientSideRoute>
+        </Link>
       )}
       {dayNo == 25 && (
         <span className="flex flex-row mt-56 space-x-1 items-center text-gray-400">
@@ -28,12 +28,12 @@ export default function BottomStageNavigation({ dayNo }: BottomStageNavigationPr
         </span>
       )}
       {dayNo < 25 && (
-        <ClientSideRoute route={`norge-pa-langs/dag-${dayNo + 1}`}>
+        <Link href={`norge-pa-langs/dag-${dayNo + 1}`}>
           <span className="flex flex-row mt-56 space-x-1 items-center">
             <p className="text-lg">Dagen etter</p>
             <HiOutlineArrowSmRight className="h-8 w-8" />
           </span>
-        </ClientSideRoute>
+        </Link>
       )}
     </div>
   )

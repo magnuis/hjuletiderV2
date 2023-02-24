@@ -49,18 +49,6 @@ export default function SubRoutes() {
           name="Afrika"
         />
       </div>
-      <div className="h-96">
-        <h1>subroute</h1>
-      </div>
-      <div className="h-96">
-        <h1>subroute</h1>
-      </div>
-      <div className="h-96">
-        <h1>subroute</h1>
-      </div>
-      <div className="h-96">
-        <h1>subroute</h1>
-      </div>
     </div>
   )
 }

@@ -1,5 +1,5 @@
 import Image from 'next/image'
-import ClientSideRoute from '../ClientSideRoute'
+import Link from 'next/link'
 
 interface SubRouteProps {
   name: string
@@ -8,7 +8,7 @@ interface SubRouteProps {
 }
 export default function SubRoute(props: SubRouteProps) {
   return (
-    <ClientSideRoute route={props.href}>
+    <Link href={props.href}>
       <div className="relative w-full h-80 hover:scale-105 transition-transform duration-200 ease-out first-letter first-letter">
         <Image
           src={props.imageUrl}
@@ -20,6 +20,6 @@ export default function SubRoute(props: SubRouteProps) {
           <p>{props.name}</p>
         </div>
       </div>
-    </ClientSideRoute>
+    </Link>
   )
 }

@@ -43,10 +43,10 @@ export default function Header() {
               AFRIKA
             </Link>
             <Link
-              className={`${pathname?.includes('/mindre-turer') ? 'text-blue-600' : 'text-black'}`}
-              href={'/mindre-turer'}
+              className={`${pathname?.includes('/brasil') ? 'text-blue-600' : 'text-black'}`}
+              href={'/brasil'}
             >
-              MINDRE TURER
+              BRASIL
             </Link>
           </div>
         </div>

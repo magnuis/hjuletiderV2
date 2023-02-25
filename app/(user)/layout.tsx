@@ -8,7 +8,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <body>
         <WideHeader />
         <MobileHeader />
-        <div>{children}</div>
+        <div className="mt-16 sm:mt-24">{children}</div>
         <Footer />
       </body>
     </html>

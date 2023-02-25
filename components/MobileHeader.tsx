@@ -13,7 +13,7 @@ const MobileHeader = (): JSX.Element => {
 
   return (
     <div
-      className={`fixed w-screen z-10
+      className={`fixed w-screen z-10 -translate-y-16
        ${
          !isOpen ? 'h-16' : 'h-fit'
        } transition-all duration-500 p-6 bg-white bg-opacity-90 sm:hidden`}

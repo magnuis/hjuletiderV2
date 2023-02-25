@@ -8,7 +8,7 @@ const builder = imageUrlBuilder(client)
 
 export default function Page() {
   return (
-    <div className="flex flex-col space-y-6">
+    <div className="flex flex-col space-y-6 w-full">
       <div className="relative h-96 mb-10">
         <Image
           priority

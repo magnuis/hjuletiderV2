@@ -9,7 +9,8 @@ export default function WideHeader() {
   const pathname = usePathname()
   return (
     <div
-      className={`fixed z-10 w-screen
+      id="top"
+      className={`fixed z-10 w-screen -translate-y-24
         transition-all duration-500 p-6 bg-white bg-opacity-90 hidden sm:block`}
     >
       <header className="max-w-7xl mx-auto">

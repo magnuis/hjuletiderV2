@@ -18,7 +18,7 @@ export default async function Page() {
   const stages = await client.fetch(query)
 
   return (
-    <div className="max-w-7xl mx-auto flex flex-col space-y-6">
+    <div className="flex flex-col space-y-6">
       <div className="relative h-96 mb-10">
         <Image
           priority
@@ -32,7 +32,7 @@ export default async function Page() {
           fill
         />
       </div>
-      <div className="max-w-7xl mx-10 flex flex-col space-y-8">
+      <div className="max-w-7xl mx-auto flex flex-col space-y-8 px-10">
         <hr className="border-black" />
         <span className={`${inter.className} text-lg lg:text-xl`}>
           <p className="text-5xl font-bold ">Norge på langs</p>

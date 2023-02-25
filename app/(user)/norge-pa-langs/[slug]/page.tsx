@@ -12,6 +12,8 @@ import { MapCard } from '../../../../components/norge-pa-langs/MapCard'
 import { getHistoricalWeather } from '../../../../lib/weather'
 import { BsCloudRain, BsClouds, BsCloudSun, BsSnow, BsSun, BsThermometer } from 'react-icons/bs'
 import { WiStrongWind } from 'react-icons/wi'
+import { PortableText } from '@portabletext/react'
+import { RichTextComponents } from '../../../../components/RichTextComponents'
 
 const builder = imageUrlBuilder(client)
 
@@ -109,7 +111,7 @@ export default async function StagePage({ params: { slug, stravaData } }: StageP
         </div>
         <hr className="border-black" />
         <h1 className="text-5xl font-bold mx-auto">{stage.title}</h1>
-        <p className="text-xl">{stage.description}</p>
+        <PortableText value={stage.description} components={RichTextComponents} />
         <h3 className="mx-auto text-3xl font-bold">{`Været i dag`}</h3>
         <div className="text-xl flex flex-col space-y-2 ml-12">
           <span className="flex flex-row items-center space-x-2">

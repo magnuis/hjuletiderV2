@@ -22,6 +22,11 @@ export default defineType({
     defineField({
       name: 'description',
       title: 'Description',
+      type: 'blockContent',
+    }),
+    defineField({
+      name: 'shortDesc',
+      title: 'shortDesc',
       type: 'string',
     }),
     defineField({

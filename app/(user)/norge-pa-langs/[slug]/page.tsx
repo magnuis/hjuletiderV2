@@ -1,15 +1,33 @@
 import Image from 'next/image'
-import { Stage, stravaData } from '../../../../type'
+import { Stage, stravaData, Weather } from '../../../../type'
 import imageUrlBuilder from '@sanity/image-url'
 import { client } from '../../../../lib/sanity.client'
 import { groq } from 'next-sanity'
 import { concatStageData, getActivities } from '../../../../lib/strava'
-import { GiMountainRoad, GiPathDistance, GiCalendar } from 'react-icons/gi'
+import {
+  GiMountainRoad,
+  GiPathDistance,
+  GiCalendar,
+  GiSunCloud,
+  GiThermometerScale,
+  GiThermometerHot,
+} from 'react-icons/gi'
 import { IoMdBicycle } from 'react-icons/io'
 import BottomStageNavigation from '../../../../components/norge-pa-langs/stagePage/BottomStageNavigation'
 import NotFound from '../../../../components/NotFoundPage'
 import { MapCard } from '../../../../components/norge-pa-langs/MapCard'
 import { getHistoricalWeather } from '../../../../lib/weather'
+import { FaCloud, FaCloudRain, FaTemperatureLow, FaThermometer, FaWind } from 'react-icons/fa'
+import {
+  BsCloudRain,
+  BsClouds,
+  BsCloudSun,
+  BsFillCloudsFill,
+  BsSnow,
+  BsSun,
+  BsThermometer,
+} from 'react-icons/bs'
+import { WiStrongWind } from 'react-icons/wi'
 
 const builder = imageUrlBuilder(client)
 
@@ -58,6 +76,17 @@ export default async function StagePage({ params: { slug, stravaData } }: StageP
     date: filteredStravaStage.date,
   })
 
+  // const weatherData: Weather = {
+  //   windspd: 10.2,
+  //   windgust: 24,
+  //   feelsLikeMin: 7.3,
+  //   precip: 1.5,
+  //   temperature: 10.2,
+  //   winddir: 220,
+  //   description: 'Windy with light rain.',
+  //   icon: 'rain',
+  // }
+
   return (
     <div className="relative max-w-7xl mx-auto flex flex-col space-y-6 mb-40">
       <div className="relative w-full h-96 mb-10">
@@ -96,19 +125,26 @@ export default async function StagePage({ params: { slug, stravaData } }: StageP
         </div>
         <hr className="border-black" />
         <h1 className="text-5xl font-bold mx-auto">{stage.title}</h1>
-        <p className="text-xl ">{stage.description}</p>
+        <p className="text-xl">{stage.description}</p>
         <h3 className="mx-auto text-3xl font-bold">{`Været i dag`}</h3>
-        <ul>
-          <li>
-            <p>{`Temperaturen i dag lå på ${weatherData.temperature}°C, men føltes mer som ${weatherData.feelsLikeMin}.`}</p>
-          </li>
-          <li>
-            <p>{`Vinden blåste ${weatherData.windspd}m/s i dag, men var oppe i ${weatherData.windgust} i kastene.`}</p>
-          </li>
-          <li>
-            <p>{`Været i dag er beskrevet som "${weatherData.description}". Totalt kom det ${weatherData.precip}mm nedbør.`}</p>
-          </li>
-        </ul>
+        <div className="text-xl flex flex-col space-y-2 ml-12">
+          <span className="flex flex-row items-center space-x-2">
+            {weatherData.icon === 'rain' && <BsCloudRain />}
+            {weatherData.icon === 'cloudy' && <BsClouds />}
+            {weatherData.icon === 'snow' && <BsSnow />}
+            {weatherData.icon === 'clear-day' && <BsSun />}
+            {weatherData.icon === 'partly-cloudy-day' && <BsCloudSun />}
+            <p className="italic">{`${weatherData.description}`}</p>
+          </span>
+          <span className="flex flex-row items-center space-x-2">
+            <BsThermometer />
+            <p>{`${weatherData.temperature}°C - føltes som ${weatherData.feelsLikeMin}°C`}</p>
+          </span>
+          <span className="flex flex-row items-center space-x-2">
+            <WiStrongWind />
+            <p>{`${weatherData.windspd}m/s, med kast oppe i ${weatherData.windgust}m/s`}</p>
+          </span>
+        </div>
       </div>
       <div>
         <MapCard strava={filteredStravaStage} />

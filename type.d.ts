@@ -38,4 +38,5 @@ type Weather = {
   winddir: number
   description: string
   precip: number
+  icon: string
 }

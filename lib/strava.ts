@@ -7,7 +7,6 @@ const refreshToken = process.env.NEXT_STRAVA_REFRESH_TOKEN
 
 const userId = process.env.NEXT_STRAVA_CLIENT_ID
 const TOKEN_ENDPOINT = 'https://www.strava.com/oauth/token'
-const ATHLETES_ENDPOINT = `https://www.strava.com/api/v3/athletes/${userId}`
 const ACTIVITY_ENDPOINT = 'https://www.strava.com/api/v3/'
 
 const getAccessToken = async () => {
@@ -31,21 +30,24 @@ export const getActivities = async () => {
     `https://www.strava.com/api/v3/athlete//activities?access_token=${accessToken}`
   )
   const json = await response.json()
+  var regex = new RegExp('Dag_[0-9]+')
 
-  return json.map((activity: any) => {
-    const points = getPolyPoints(activity.map.summary_polyline)
-    return {
-      id: activity.id,
-      name: activity.name,
-      date: activity.start_date,
-      distance: activity.distance,
-      averageSpeed: activity.average_speed,
-      totalElevationGain: activity.total_elevation_gain,
-      start_latlng: activity.start_latlng,
-      end_latlng: activity.end_latlng,
-      points: points,
-    }
-  })
+  return json
+    .filter((activity: any) => regex.test(activity.name))
+    .map((activity: any) => {
+      const points = getPolyPoints(activity.map.summary_polyline)
+      return {
+        id: activity.id,
+        name: activity.name,
+        date: activity.start_date,
+        distance: activity.distance,
+        averageSpeed: activity.average_speed,
+        totalElevationGain: activity.total_elevation_gain,
+        start_latlng: activity.start_latlng,
+        end_latlng: activity.end_latlng,
+        points: points,
+      }
+    })
 }
 
 export const getActivityById = async (id: string) => {

@@ -1,3 +1,4 @@
+import Footer from '../../components/footer'
 import WideHeader from '../../components/Header'
 import MobileHeader from '../../components/MobileHeader'
 import '../../styles/globals.css'
@@ -7,7 +8,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <body>
         <WideHeader />
         <MobileHeader />
-        <div className="translate-y-16 sm:translate-y-24">{children}</div>
+        <div>{children}</div>
+        <Footer />
       </body>
     </html>
   )

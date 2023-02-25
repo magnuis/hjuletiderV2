@@ -7,7 +7,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <body>
         <WideHeader />
         <MobileHeader />
-        <div className="translate-y-16">{children}</div>
+        <div className="translate-y-16 sm:translate-y-24">{children}</div>
       </body>
     </html>
   )

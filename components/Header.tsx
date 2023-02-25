@@ -1,21 +1,18 @@
 'use client'
 
 import Link from 'next/link'
-import { useScrollDirection } from '../hooks/UseScrollDirection'
 import { FaBicycle } from 'react-icons/fa'
 import { usePathname } from 'next/navigation'
 import { inter } from '../lib/fonts'
 
 export default function WideHeader() {
-  const scrollDir = useScrollDirection()
   const pathname = usePathname()
   return (
     <div
-      className={`sticky z-10 ${
-        scrollDir === 'down' ? '-top-30' : 'top-0'
-      } h-30 transition-all duration-500 p-6 bg-white bg-opacity-50 hidden sm:block`}
+      className={`fixed z-10 w-screen
+        transition-all duration-500 p-6 bg-white bg-opacity-90 hidden sm:block`}
     >
-      <header>
+      <header className="max-w-7xl mx-auto">
         <div className="flex flex-row justify-between text-xl">
           <Link href={'/'}>
             {' '}

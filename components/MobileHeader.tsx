@@ -1,8 +1,7 @@
 'use client'
-import React, { useEffect } from 'react'
+import React from 'react'
 import Hamburger from 'hamburger-react'
 
-import { useScrollDirection } from '../hooks/UseScrollDirection'
 import Link from 'next/link'
 import { FaBicycle } from 'react-icons/fa'
 import { inter } from '../lib/fonts'

@@ -6,14 +6,14 @@ import { FaBicycle } from 'react-icons/fa'
 import { usePathname } from 'next/navigation'
 import { inter } from '../lib/fonts'
 
-export default function Header() {
+export default function WideHeader() {
   const scrollDir = useScrollDirection()
   const pathname = usePathname()
   return (
     <div
       className={`sticky z-10 ${
         scrollDir === 'down' ? '-top-30' : 'top-0'
-      } h-30 transition-all duration-500 p-6 bg-white bg-opacity-50 `}
+      } h-30 transition-all duration-500 p-6 bg-white bg-opacity-50 hidden sm:block`}
     >
       <header>
         <div className="flex flex-row justify-between text-xl">

@@ -4,29 +4,13 @@ import imageUrlBuilder from '@sanity/image-url'
 import { client } from '../../../../lib/sanity.client'
 import { groq } from 'next-sanity'
 import { concatStageData, getActivities } from '../../../../lib/strava'
-import {
-  GiMountainRoad,
-  GiPathDistance,
-  GiCalendar,
-  GiSunCloud,
-  GiThermometerScale,
-  GiThermometerHot,
-} from 'react-icons/gi'
+import { GiMountainRoad, GiPathDistance, GiCalendar } from 'react-icons/gi'
 import { IoMdBicycle } from 'react-icons/io'
 import BottomStageNavigation from '../../../../components/norge-pa-langs/stagePage/BottomStageNavigation'
 import NotFound from '../../../../components/NotFoundPage'
 import { MapCard } from '../../../../components/norge-pa-langs/MapCard'
 import { getHistoricalWeather } from '../../../../lib/weather'
-import { FaCloud, FaCloudRain, FaTemperatureLow, FaThermometer, FaWind } from 'react-icons/fa'
-import {
-  BsCloudRain,
-  BsClouds,
-  BsCloudSun,
-  BsFillCloudsFill,
-  BsSnow,
-  BsSun,
-  BsThermometer,
-} from 'react-icons/bs'
+import { BsCloudRain, BsClouds, BsCloudSun, BsSnow, BsSun, BsThermometer } from 'react-icons/bs'
 import { WiStrongWind } from 'react-icons/wi'
 
 const builder = imageUrlBuilder(client)

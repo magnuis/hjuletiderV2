@@ -18,7 +18,7 @@ export default function WideHeader() {
             {' '}
             <FaBicycle className="text-gray-900 h-12 w-12" />
           </Link>
-          <div className="flex items-center gap-2">
+          <div className="flex items-center gap-4">
             <Link
               className={`${pathname == '/' ? 'text-blue-600' : 'text-black'} ${inter.className}`}
               href={'/'}

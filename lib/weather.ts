@@ -31,7 +31,6 @@ export const getHistoricalWeather = async ({ lat, long, date }: WeatherProps): P
   )
     .then((res) => res.json())
     .then((res) => {
-      console.log(res)
       return {
         temperature: res.days[0].temp,
         feelsLikeMin: res.days[0].feelslikemin,

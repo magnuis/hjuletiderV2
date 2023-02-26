@@ -46,6 +46,12 @@ export default function WideHeader() {
             >
               BRASIL
             </Link>
+            <Link
+              className={`${pathname?.includes('/bilder') ? 'text-blue-600' : 'text-black'}`}
+              href={'/bilder'}
+            >
+              BILDER
+            </Link>
           </div>
         </div>
       </header>

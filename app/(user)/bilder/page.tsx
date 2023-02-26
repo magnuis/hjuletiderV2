@@ -3,6 +3,22 @@ import React from 'react'
 import imageUrlBuilder from '@sanity/image-url'
 import { client } from '../../../lib/sanity.client'
 import { groq } from 'next-sanity'
+const builder = imageUrlBuilder(client)
+
+export default async function Page() {
+  const query = groq`
+*[_type=='sanity.imageAsset'] {
+...,
+} `
+  const images = await client.fetch(query)
+  console.log('IMAGES: ' + images)
+  return <div></div>
+}
+import React from 'react'
+
+import imageUrlBuilder from '@sanity/image-url'
+import { client } from '../../../lib/sanity.client'
+import { groq } from 'next-sanity'
 import Link from 'next/link'
 import ImageCard from '../../../components/bilder/imageCard'
 import { GiAfrica, GiBrazilFlag } from 'react-icons/gi'

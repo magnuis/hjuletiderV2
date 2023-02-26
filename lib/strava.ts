@@ -2,8 +2,6 @@ import { stravaData } from '../type'
 
 import { readFileSync } from 'fs'
 import { join } from 'path'
-import { readFileSync } from 'fs'
-import { join } from 'path'
 var polyline = require('@mapbox/polyline')
 
 const clientId = process.env.NEXT_STRAVA_CLIENT_ID
@@ -44,26 +42,6 @@ export const getActivities = async () => {
   const response = await fetch(
     `https://www.strava.com/api/v3/athlete//activities?access_token=${accessToken}`
   )
-  const json = await response.json().then((res) => {
-    return res
-      .filter((activity: any) => regex.test(activity.name))
-      .map((activity: any) => {
-        const points = getPolyPoints(activity.map.summary_polyline)
-        return {
-          id: activity.id,
-          name: activity.name,
-          date: activity.start_date,
-          distance: activity.distance,
-          averageSpeed: activity.average_speed,
-          totalElevationGain: activity.total_elevation_gain,
-          start_latlng: activity.start_latlng,
-          end_latlng: activity.end_latlng,
-          points: points,
-        }
-      })
-  })
-
-  return json
   const json = await response.json().then((res) => {
     return res
       .filter((activity: any) => regex.test(activity.name))

@@ -91,6 +91,15 @@ const MobileMenu = ({ setIsOpen, pathname }: MobileMenuProps): JSX.Element => {
         >
           Brasil
         </Link>
+        <Link
+          onClick={() => setIsOpen(false)}
+          className={`${pathname == '/bilder' ? 'text-blue-600' : 'text-black'} ${
+            inter.className
+          } flex flex-row-reverse`}
+          href={'/bilder'}
+        >
+          Bilder
+        </Link>
       </div>
     </div>
   )

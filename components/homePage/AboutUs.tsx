@@ -6,7 +6,7 @@ const builder = imageUrlBuilder(client)
 
 export default function AboutUs() {
   return (
-    <div className=" max-h-full">
+    <div className="max-h-full">
       <div className="relative h-96">
         <Image
           priority

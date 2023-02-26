@@ -6,6 +6,7 @@ import { groq } from 'next-sanity'
 import ImageCard from '../../../components/bilder/imageCard'
 import { GiAfrica, GiBrazilFlag } from 'react-icons/gi'
 import { MdDirectionsBike } from 'react-icons/md'
+import Gallery from '../../../components/bilder/Gallery'
 const builder = imageUrlBuilder(client)
 
 export default async function Page() {
@@ -33,11 +34,7 @@ export default async function Page() {
           <GiBrazilFlag className="h-5 w-5" />
         </span>
       </div>
-      <div className={`grid grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-2 pb-24`}>
-        {images.map((image: any) => (
-          <ImageCard src={image.url} alt={image._rev} />
-        ))}
-      </div>
+      <Gallery images={images} />
     </div>
   )
 }

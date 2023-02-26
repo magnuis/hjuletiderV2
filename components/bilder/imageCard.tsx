@@ -10,7 +10,7 @@ interface ImageCardProps {
 }
 export default function ImageCard({ src, alt }: ImageCardProps) {
   return (
-    <div className="mx-auto relative h-24 w-full sm:h-44 hover:cursor-pointer opacity-95 hover:opacity-100 transition-transform duration-200 ease-out">
+    <div className="mx-auto relative h-24 w-full sm:h-44 hover:cursor-pointer sm:opacity-95 hover:opacity-100 transition-transform duration-200 ease-out">
       <Image
         src={builder.image(src).url()}
         alt={alt}

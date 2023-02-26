@@ -1,7 +1,5 @@
 import { readFileSync } from 'fs'
-import { readFileSync } from 'fs'
 import moment from 'moment'
-import { join } from 'path'
 import { join } from 'path'
 import { Weather } from '../type'
 

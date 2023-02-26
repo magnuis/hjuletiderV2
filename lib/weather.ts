@@ -13,13 +13,11 @@ const weatherApiKey = process.env.NEXT_VISUAL_CROSSING_KEY
 
 export const getHistoricalWeather = async ({ lat, long, date }: WeatherProps): Promise<Weather> => {
   if (process.env.NODE_ENV == 'development') {
-    console.log('IN DEVELOPMENT MODE WEATHER getHistoricalWeather')
     const data = readFileSync(join(process.cwd(), 'lib', 'weather.json'), 'utf8')
     return JSON.parse(data)
   }
 
   const startDate = new Date(date).valueOf()
-  const endDate = startDate + 24 * 60 * 60 * 1000 + 1
 
   const startDateString = moment(startDate).format('YYYY-MM-DDTHH:mm:ss')
 

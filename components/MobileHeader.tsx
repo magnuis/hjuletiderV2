@@ -3,9 +3,9 @@ import React from 'react'
 import Hamburger from 'hamburger-react'
 
 import Link from 'next/link'
-import { FaBicycle } from 'react-icons/fa'
 import { inter } from '../lib/fonts'
 import { usePathname } from 'next/navigation'
+import { GiEarthAfricaEurope } from 'react-icons/gi'
 
 const MobileHeader = (): JSX.Element => {
   const pathname = usePathname()
@@ -22,7 +22,7 @@ const MobileHeader = (): JSX.Element => {
         <div className="flex justify-between">
           <Link href={'/'}>
             {' '}
-            <FaBicycle className="text-gray-900 h-10 w-10 -translate-y-2" />
+            <GiEarthAfricaEurope className="text-gray-900 h-10 w-10 -translate-y-2" />
           </Link>
 
           {

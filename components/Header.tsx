@@ -1,8 +1,9 @@
 'use client'
 
 import Link from 'next/link'
-import { FaBicycle } from 'react-icons/fa'
+
 import { usePathname } from 'next/navigation'
+import { GiEarthAfricaEurope } from 'react-icons/gi'
 import { inter } from '../lib/fonts'
 
 export default function WideHeader() {
@@ -17,7 +18,7 @@ export default function WideHeader() {
         <div className="flex flex-row justify-between text-xl">
           <Link href={'/'}>
             {' '}
-            <FaBicycle className="text-gray-900 h-12 w-12" />
+            <GiEarthAfricaEurope className="text-gray-900 h-12 w-12" />
           </Link>
           <div className="flex items-center gap-4">
             <Link

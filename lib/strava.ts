@@ -1,6 +1,8 @@
 import { stravaData } from '../type'
 import { readFileSync } from 'fs'
 import { join } from 'path'
+import { readFileSync } from 'fs'
+import { join } from 'path'
 var polyline = require('@mapbox/polyline')
 
 const clientId = process.env.NEXT_STRAVA_CLIENT_ID
@@ -28,6 +30,7 @@ const getAccessToken = async () => {
 
 export const getActivities = async () => {
   if (process.env.NODE_ENV == 'development') {
+    console.log('IN DEVELOPMENT MODE STRAVA getActivities')
     const data = readFileSync(join(process.cwd(), 'lib', 'strava.json'), 'utf8')
     return JSON.parse(data)
   }
@@ -58,10 +61,31 @@ export const getActivities = async () => {
   })
 
   return json
+  const json = await response.json().then((res) => {
+    return res
+      .filter((activity: any) => regex.test(activity.name))
+      .map((activity: any) => {
+        const points = getPolyPoints(activity.map.summary_polyline)
+        return {
+          id: activity.id,
+          name: activity.name,
+          date: activity.start_date,
+          distance: activity.distance,
+          averageSpeed: activity.average_speed,
+          totalElevationGain: activity.total_elevation_gain,
+          start_latlng: activity.start_latlng,
+          end_latlng: activity.end_latlng,
+          points: points,
+        }
+      })
+  })
+
+  return json
 }
 
 export const getActivityById = async (id: string) => {
   if (process.env.NODE_ENV == 'development') {
+    console.log('IN DEVELOPMENT MODE getActivitiesById')
     return {
       distance: 123,
       averageSpeed: 20.9,

@@ -24,15 +24,15 @@ export default function Gallery({ images }: GalleryProps) {
           <ImageCard image={image} setShowModal={setShowModal} setCurrentImage={setCurrentImage} />
         ))}
       </div>
-      {showModal && (
-        <ImageModal
-          setShowModal={setShowModal}
-          nextImage={nextImage}
-          prevImage={prevImage}
-          src={images[currentImage].url}
-          alt={images[currentImage]._rev}
-        />
-      )}
+
+      <ImageModal
+        setShowModal={setShowModal}
+        nextImage={nextImage}
+        prevImage={prevImage}
+        showModal={showModal}
+        src={images[currentImage].url}
+        alt={images[currentImage].description}
+      />
     </div>
   )
 }

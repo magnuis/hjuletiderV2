@@ -2,8 +2,6 @@
 import Image from 'next/image'
 import imageUrlBuilder from '@sanity/image-url'
 import { client } from '../../lib/sanity.client'
-import { useState } from 'react'
-import ImageModal from './imageModal'
 
 const builder = imageUrlBuilder(client)
 

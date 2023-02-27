@@ -32,15 +32,6 @@ export default function SubRoutes() {
           name="Norge på langs"
         />
         <SubRoute
-          href="/mindre-turer"
-          imageUrl={builder
-            .image(
-              'https://cdn.sanity.io/images/14nn8v5u/production/1b0e627b71c597b4c4834ca05d8e57a9e23b275f-3024x4032.jpg'
-            )
-            .url()}
-          name="Mindre turer"
-        />
-        <SubRoute
           href="/afrika"
           imageUrl={builder
             .image(
@@ -48,6 +39,24 @@ export default function SubRoutes() {
             )
             .url()}
           name="Afrika"
+        />
+        <SubRoute
+          href="/brasil"
+          imageUrl={builder
+            .image(
+              'https://cdn.sanity.io/images/14nn8v5u/production/bd787eb45b4bb21b7a5c8b31eed03f33d593014c-7837x3963.jpg'
+            )
+            .url()}
+          name="Brasil"
+        />
+        <SubRoute
+          href="/bilder"
+          imageUrl={builder
+            .image(
+              'https://cdn.sanity.io/images/14nn8v5u/production/1b0e627b71c597b4c4834ca05d8e57a9e23b275f-3024x4032.jpg'
+            )
+            .url()}
+          name="Bilder"
         />
       </div>
     </div>

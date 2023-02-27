@@ -16,13 +16,13 @@ const MobileHeader = (): JSX.Element => {
       className={`fixed w-screen z-10 -translate-y-16
        ${
          !isOpen ? 'h-16' : 'h-fit'
-       } transition-all duration-500 p-6 bg-white bg-opacity-90 sm:hidden`}
+       } transition-all duration-500 p-6 bg-white bg-opacity-90 sm:hidden ${raleway.className}`}
     >
       <header className="relative">
         <div className="flex justify-between">
           <Link href={'/'}>
             {' '}
-            <GiEarthAfricaEurope className="text-gray-900 h-10 w-10 -translate-y-2" />
+            <GiEarthAfricaEurope className="text-gray-900 h-8 w-8 -translate-y-2" />
           </Link>
 
           {

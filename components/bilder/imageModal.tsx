@@ -1,5 +1,8 @@
+import { Dialog } from '@headlessui/react'
 import imageUrlBuilder from '@sanity/image-url'
 import Image from 'next/image'
+import { BsArrowLeftCircle, BsArrowRightCircle } from 'react-icons/bs'
+import { AiOutlineCloseCircle } from 'react-icons/ai'
 import { client } from '../../lib/sanity.client'
 
 const builder = imageUrlBuilder(client)
@@ -10,38 +13,44 @@ interface ImageModalProps {
   prevImage: () => void
   src: string
   alt: string
+  showModal: boolean
 }
 
-export default function ImageModal({ setShowModal, src, alt }: ImageModalProps) {
+export default function ImageModal({
+  setShowModal,
+  nextImage,
+  prevImage,
+  showModal,
+  src,
+  alt,
+}: ImageModalProps) {
   return (
-    <>
-      <div className="justify-center items-center flex overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none w-96">
-        <div className="w-96 my-6 mx-auto max-w-3xl">
-          {/*content*/}
-          <div className="w-96 border-0 rounded-lg shadow-lg relative flex flex-col  bg-white outline-none focus:outline-none">
-            {/*body*/}
-            <Image src={builder.image(src).url()} alt={alt} className="absolute w-48 h-48" />
-            {/*footer*/}
-            <div className="flex items-center justify-end p-6 border-t border-solid border-slate-200 rounded-b">
-              <button
-                className="text-red-500 background-transparent font-bold uppercase px-6 py-2 text-sm outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
-                type="button"
-                onClick={() => setShowModal(false)}
-              >
-                Close
-              </button>
-              <button
-                className="bg-emerald-500 text-white active:bg-emerald-600 font-bold uppercase text-sm px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
-                type="button"
-                onClick={() => setShowModal(false)}
-              >
-                Save Changes
-              </button>
+    <Dialog open={showModal} onClose={() => setShowModal(false)} className="relative z-50">
+      <div className="fixed inset-0 flex items-center justify-center p-4">
+        <Dialog.Panel className="w-full max-w-3xl rounded bg-white">
+          <Dialog.Backdrop className="fixed inset-0 bg-black opacity-30 z-49" />
+          <AiOutlineCloseCircle
+            className="absolute mt-4 ml-4"
+            onClick={() => setShowModal(false)}
+          />
+          <div className="relative mx-10 my-10 flex flex-col gap-y-4">
+            <Image
+              src={builder.image(src).url()}
+              alt={alt}
+              className="object-center object-cover top-0 opacity-100 mx-auto"
+              width={300}
+              height={300}
+            />
+            <hr />
+            <p>{alt}</p>
+            <div className="mx-auto flex flex-row gap-x-6 m-3">
+              <BsArrowLeftCircle onClick={() => prevImage()} />
+              <BsArrowRightCircle onClick={() => nextImage()} />
             </div>
           </div>
-        </div>
+          <div className="relative"></div>
+        </Dialog.Panel>
       </div>
-      <div className="opacity-25 fixed inset-0 z-40 bg-black"></div>
-    </>
+    </Dialog>
   )
 }

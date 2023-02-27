@@ -62,17 +62,6 @@ export default async function StagePage({ params: { slug, stravaData } }: StageP
     date: filteredStravaStage.date,
   })
 
-  // const weatherData: Weather = {
-  //   windspd: 10.2,
-  //   windgust: 24,
-  //   feelsLikeMin: 7.3,
-  //   precip: 1.5,
-  //   temperature: 10.2,
-  //   winddir: 220,
-  //   description: 'Windy with light rain.',
-  //   icon: 'rain',
-  // }
-
   return (
     <div className="relative max-w-7xl mx-auto flex flex-col space-y-6 mb-40">
       <div className="relative w-full h-96 mb-10">

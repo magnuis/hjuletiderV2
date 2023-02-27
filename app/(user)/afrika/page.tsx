@@ -3,12 +3,13 @@ import Image from 'next/image'
 import { client } from '../../../lib/sanity.client'
 
 import Link from 'next/link'
+import { raleway } from '../../../lib/fonts'
 
 const builder = imageUrlBuilder(client)
 
 export default function Page() {
   return (
-    <div className="flex flex-col space-y-6">
+    <div className={`flex flex-col space-y-6 ${raleway.className}`}>
       <div className="relative h-96 mb-10">
         <Image
           priority

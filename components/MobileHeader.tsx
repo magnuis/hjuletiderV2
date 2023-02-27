@@ -3,7 +3,7 @@ import React from 'react'
 import Hamburger from 'hamburger-react'
 
 import Link from 'next/link'
-import { inter } from '../lib/fonts'
+import { raleway } from '../lib/fonts'
 import { usePathname } from 'next/navigation'
 import { GiEarthAfricaEurope } from 'react-icons/gi'
 
@@ -50,13 +50,11 @@ interface MobileMenuProps {
 }
 const MobileMenu = ({ setIsOpen, pathname }: MobileMenuProps): JSX.Element => {
   return (
-    <div className="">
+    <div className={`${raleway.className}`}>
       <div className="flex flex-col gap-2">
         <Link
           onClick={() => setIsOpen(false)}
-          className={`${pathname == '/' ? 'text-blue-600' : 'text-black'} ${
-            inter.className
-          } flex flex-row-reverse`}
+          className={`${pathname == '/' ? 'text-blue-600' : 'text-black'}  flex flex-row-reverse`}
           href={'/'}
         >
           Hjem
@@ -64,9 +62,9 @@ const MobileMenu = ({ setIsOpen, pathname }: MobileMenuProps): JSX.Element => {
         <hr />
         <Link
           onClick={() => setIsOpen(false)}
-          className={`${pathname == '/norge-pa-langs' ? 'text-blue-600' : 'text-black'} ${
-            inter.className
-          } flex flex-row-reverse`}
+          className={`${
+            pathname == '/norge-pa-langs' ? 'text-blue-600' : 'text-black'
+          }  flex flex-row-reverse`}
           href={'/norge-pa-langs'}
         >
           Norge på langs
@@ -74,9 +72,9 @@ const MobileMenu = ({ setIsOpen, pathname }: MobileMenuProps): JSX.Element => {
         <hr />
         <Link
           onClick={() => setIsOpen(false)}
-          className={`${pathname == '/afrika' ? 'text-blue-600' : 'text-black'} ${
-            inter.className
-          } flex flex-row-reverse`}
+          className={`${
+            pathname == '/afrika' ? 'text-blue-600' : 'text-black'
+          }  flex flex-row-reverse`}
           href={'/afrika'}
         >
           Afrika
@@ -84,18 +82,18 @@ const MobileMenu = ({ setIsOpen, pathname }: MobileMenuProps): JSX.Element => {
         <hr />
         <Link
           onClick={() => setIsOpen(false)}
-          className={`${pathname == '/brasil' ? 'text-blue-600' : 'text-black'} ${
-            inter.className
-          } flex flex-row-reverse`}
+          className={`${
+            pathname == '/brasil' ? 'text-blue-600' : 'text-black'
+          }  flex flex-row-reverse`}
           href={'/brasil'}
         >
           Brasil
         </Link>
         <Link
           onClick={() => setIsOpen(false)}
-          className={`${pathname == '/bilder' ? 'text-blue-600' : 'text-black'} ${
-            inter.className
-          } flex flex-row-reverse`}
+          className={`${
+            pathname == '/bilder' ? 'text-blue-600' : 'text-black'
+          }  flex flex-row-reverse`}
           href={'/bilder'}
         >
           Bilder

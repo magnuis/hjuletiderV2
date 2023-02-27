@@ -2,13 +2,14 @@ import SubRoute from './SubRoute'
 
 import imageUrlBuilder from '@sanity/image-url'
 import { client } from '../../lib/sanity.client'
+import { raleway } from '../../lib/fonts'
 
 const builder = imageUrlBuilder(client)
 
 export default function SubRoutes() {
   return (
-    <div className="mx-10">
-      <span className="m-10 text-2xl">
+    <div className={`mx-10 ${raleway.className}`}>
+      <span className="m-10 text-xl">
         <p>Livet er en reise.</p>
         <br />
         <p>

@@ -4,7 +4,7 @@ import Image from 'next/image'
 import StageCard from '../../../components/StageCard'
 import { client } from '../../../lib/sanity.client'
 import { Stage } from '../../../type'
-import { inter } from '../../../lib/fonts'
+import { raleway } from '../../../lib/fonts'
 import Link from 'next/link'
 
 const builder = imageUrlBuilder(client)
@@ -34,7 +34,7 @@ export default async function Page() {
       </div>
       <div className="max-w-7xl mx-auto flex flex-col space-y-8 px-10">
         <hr className="border-black" />
-        <span className={`${inter.className} text-lg lg:text-xl`}>
+        <span className={`${raleway.className} text-lg lg:text-xl`}>
           <p className="text-5xl font-bold ">Norge på langs</p>
           <br />
           <p>
@@ -57,7 +57,9 @@ export default async function Page() {
           </span>
         </span>
         <hr className="border-black" />
-        <div className={`grid grid-cols-1 md:grid-cols-2 gap-10 gap-y-16 pb-24 ${inter.className}`}>
+        <div
+          className={`grid grid-cols-1 md:grid-cols-2 gap-10 gap-y-16 pb-24 ${raleway.className}`}
+        >
           {stages.map((stage: Stage) => (
             <Link key={stage._id} href={`norge-pa-langs/${stage.slug.current}`}>
               <StageCard stage={stage} />

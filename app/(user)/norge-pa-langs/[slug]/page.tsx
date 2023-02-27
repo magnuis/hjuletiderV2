@@ -14,6 +14,7 @@ import { BsCloudRain, BsClouds, BsCloudSun, BsSnow, BsSun, BsThermometer } from 
 import { WiStrongWind } from 'react-icons/wi'
 import { PortableText } from '@portabletext/react'
 import { RichTextComponents } from '../../../../components/RichTextComponents'
+import { raleway } from '../../../../lib/fonts'
 
 const builder = imageUrlBuilder(client)
 
@@ -63,7 +64,9 @@ export default async function StagePage({ params: { slug, stravaData } }: StageP
   })
 
   return (
-    <div className="relative max-w-7xl mx-auto flex flex-col space-y-6 mb-40">
+    <div
+      className={`${raleway.className} relative max-w-7xl mx-auto flex flex-col space-y-6 mb-40`}
+    >
       <div className="relative w-full h-96 mb-10">
         <Image
           priority

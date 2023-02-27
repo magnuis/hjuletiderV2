@@ -31,7 +31,6 @@ export const getActivities = async () => {
   var regex = new RegExp('Dag_[0-9]+')
 
   if (process.env.NODE_ENV == 'development') {
-    console.log('IN DEVELOPMENT MODE STRAVA getActivities')
     const data = readFileSync(join(process.cwd(), 'lib', 'strava.json'), 'utf8')
     return JSON.parse(data)
   }
@@ -66,7 +65,6 @@ export const getActivities = async () => {
 
 export const getActivityById = async (id: string) => {
   if (process.env.NODE_ENV == 'development') {
-    console.log('IN DEVELOPMENT MODE getActivitiesById')
     return {
       distance: 123,
       averageSpeed: 20.9,

@@ -105,7 +105,7 @@ export default async function StagePage({ params: { slug, stravaData } }: StageP
         <h1 className="text-5xl font-bold mx-auto">{stage.title}</h1>
         <PortableText value={stage.description} components={RichTextComponents} />
         <h3 className="mx-auto text-3xl font-bold">{`Været i dag`}</h3>
-        <div className="text-xl flex flex-col space-y-2 ml-12">
+        <div className="sm:text-xl flex flex-col space-y-2 sm:ml-12">
           <span className="flex flex-row items-center space-x-2">
             {weatherData.icon === 'rain' && <BsCloudRain />}
             {weatherData.icon === 'cloudy' && <BsClouds />}

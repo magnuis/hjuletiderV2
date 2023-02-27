@@ -22,6 +22,7 @@ export default function Gallery({ images }: GalleryProps) {
       <div className={`grid grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-2 pb-24`}>
         {images.map((image: any, index: number) => (
           <ImageCard
+            key={image._id}
             image={image}
             setShowModal={setShowModal}
             setCurrentImage={setCurrentImage}

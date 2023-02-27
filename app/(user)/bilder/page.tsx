@@ -17,7 +17,7 @@ export default async function Page() {
   const images = await client.fetch(query)
   return (
     <div className="flex flex-col max-w-7xl mx-auto p-5 md:p-10 gap-y-6">
-      <div className="flex flex-col sm:flex-row gap-x-16 ml-4">
+      {/* <div className="flex flex-col sm:flex-row gap-x-16 ml-4">
         <span className="flex flex-row gap-x-2 items-center">
           <input type="checkbox" className="cursor-pointer"></input>
           <p className="">Norge på langs</p>
@@ -33,7 +33,7 @@ export default async function Page() {
           <p className="">Brasil</p>
           <GiBrazilFlag className="h-5 w-5" />
         </span>
-      </div>
+      </div> */}
       <Gallery images={images} />
     </div>
   )

@@ -17,8 +17,8 @@ function MapCard({ strava }: MapCardProps) {
   })
 
   return (
-    <div className="px-10 relative w-full" style={{ height: '50vh' }}>
-      <div id="map" className="relative" style={{ height: '80%', width: '100%' }}>
+    <div className="z-1 px-10 relative w-full" style={{ height: '50vh' }}>
+      <div id="map" className="relative z-1" style={{ height: '80%', width: '100%' }}>
         <MapWithNoSSR zoom={8} center={[centerLat, centerLng]} points={strava.points} />
       </div>
     </div>

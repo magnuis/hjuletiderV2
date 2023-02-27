@@ -64,10 +64,8 @@ export default async function StagePage({ params: { slug, stravaData } }: StageP
   })
 
   return (
-    <div
-      className={`${raleway.className} relative max-w-7xl mx-auto flex flex-col space-y-6 mb-40`}
-    >
-      <div className="relative w-full h-96 mb-10">
+    <div className={`${raleway.className} relative max-w-7xl mx-auto flex flex-col space-y-6 `}>
+      <div className="relative w-full h-96 ">
         <Image
           priority
           className="absolute object-center object-cover top-0 h-full w-full opacity-100"

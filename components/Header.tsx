@@ -11,7 +11,7 @@ export default function WideHeader() {
   return (
     <div
       id="top"
-      className={`fixed z-10 w-screen -translate-y-24
+      className={`fixed z-20 w-screen top-0
         transition-all duration-500 p-6 bg-white bg-opacity-90 hidden sm:block`}
     >
       <header className={`max-w-7xl mx-auto ${raleway.className}`}>

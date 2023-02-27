@@ -33,7 +33,7 @@ export default function ImageModal({
             className="absolute mt-4 ml-4"
             onClick={() => setShowModal(false)}
           />
-          <div className="relative mx-10 my-10 flex flex-col gap-y-4">
+          <div className="relative mx-10 my-10 flex flex-col">
             <Image
               src={builder.image(src).url()}
               alt={alt}
@@ -41,9 +41,9 @@ export default function ImageModal({
               width={300}
               height={300}
             />
-            <hr />
-            <p>{alt}</p>
-            <div className="mx-auto flex flex-row gap-x-6 m-3">
+            <hr className="mt-5 mb-3" />
+            <p className="mx-auto">{alt}</p>
+            <div className="mx-auto flex flex-row gap-x-6 mt-3">
               <BsArrowLeftCircle onClick={() => prevImage()} />
               <BsArrowRightCircle onClick={() => nextImage()} />
             </div>

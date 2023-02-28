@@ -28,7 +28,7 @@ export default function BottomStageNavigation({ dayNo }: BottomStageNavigationPr
         </span>
       )}
       {dayNo < 25 && (
-        <Link scroll={true} href={`norge-pa-langs/dag-${dayNo + 1}`}>
+        <Link href={`norge-pa-langs/dag-${dayNo + 1}`}>
           <span className="flex flex-row space-x-1 items-center">
             <p className="text-lg">Dagen etter</p>
             <HiOutlineArrowSmRight className="h-8 w-8" />

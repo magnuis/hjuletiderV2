@@ -17,6 +17,7 @@ interface Stage extends Base {
   date: string
   description: Block[]
   shortDesc: string
+  images: Image[]
 }
 
 interface stravaData {

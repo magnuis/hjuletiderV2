@@ -1,12 +1,13 @@
 'use client'
 import { useState } from 'react'
-import ImageCard from './imageCard'
-import ImageModal from './imageModal'
+import { Image } from 'sanity'
+import ImageCard from '../../bilder/imageCard'
+import ImageModal from '../../bilder/imageModal'
 
 interface GalleryProps {
-  images: any
+  images: Image[]
 }
-export default function Gallery({ images }: GalleryProps) {
+export default function StageGallery({ images }: GalleryProps) {
   const [currentImage, setCurrentImage] = useState(0)
   const [showModal, setShowModal] = useState(false)
 
@@ -19,13 +20,12 @@ export default function Gallery({ images }: GalleryProps) {
 
   return (
     <div>
-      <div className={`grid grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-2 pb-24`}>
-        {images.map((image: any, index: number) => {
+      <div className={`grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2 pb-24`}>
+        {images.map((image: Image, index: number) => {
           return (
             <ImageCard
-              key={image._id}
-              url={image.url}
-              alt={image.alt}
+              key={index}
+              url={image.asset ? image.asset._ref : ''}
               setShowModal={setShowModal}
               setCurrentImage={setCurrentImage}
               index={index}
@@ -39,8 +39,8 @@ export default function Gallery({ images }: GalleryProps) {
         nextImage={nextImage}
         prevImage={prevImage}
         showModal={showModal}
-        src={images[currentImage].url}
-        alt={images[currentImage].description}
+        src={images[currentImage].asset ? (images[currentImage].asset?._ref as string) : ''}
+        alt={images[currentImage].description ? (images[currentImage].description as string) : ''}
       />
     </div>
   )

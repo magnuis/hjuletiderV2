@@ -15,6 +15,7 @@ import { WiStrongWind } from 'react-icons/wi'
 import { PortableText } from '@portabletext/react'
 import { RichTextComponents } from '../../../../components/RichTextComponents'
 import { raleway } from '../../../../lib/fonts'
+import StageGallery from '../../../../components/norge-pa-langs/stagePage/StageGallery'
 
 const builder = imageUrlBuilder(client)
 
@@ -65,7 +66,7 @@ export default async function StagePage({ params: { slug, stravaData } }: StageP
 
   return (
     <div className={`${raleway.className} relative max-w-7xl mx-auto flex flex-col space-y-6 `}>
-      <div className="relative w-full h-96 ">
+      <div className="relative w-full h-96">
         <Image
           priority
           className="absolute object-center object-cover top-0 h-full w-full opacity-100"
@@ -123,6 +124,7 @@ export default async function StagePage({ params: { slug, stravaData } }: StageP
 
           <PortableText value={stage.description} components={RichTextComponents} />
         </div>
+        <StageGallery images={stage.images} />
       </div>
       <div>
         <MapCard strava={filteredStravaStage} />

@@ -38,6 +38,9 @@ export const RichTextComponents = {
         <blockquote className="border-l-[#F7AB0A] border-l-4 pl-5 py-5 my5-">{children}</blockquote>
       )
     },
+    normal: ({ children }: any) => {
+      return <p className="mb-5">{children}</p>
+    },
   },
   marks: {
     link: ({ children, value }: any) => {

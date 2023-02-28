@@ -101,25 +101,27 @@ export default async function StagePage({ params: { slug, stravaData } }: StageP
         </div>
         <hr className="border-black" />
         <h1 className="text-5xl font-bold mx-auto">{stage.title}</h1>
-        <PortableText value={stage.description} components={RichTextComponents} />
-        <h3 className="mx-auto text-3xl font-bold">{`Været i dag`}</h3>
-        <div className="sm:text-xl flex flex-col space-y-2 sm:ml-12">
-          <span className="flex flex-row items-center space-x-2">
-            {weatherData.icon === 'rain' && <BsCloudRain />}
-            {weatherData.icon === 'cloudy' && <BsClouds />}
-            {weatherData.icon === 'snow' && <BsSnow />}
-            {weatherData.icon === 'clear-day' && <BsSun />}
-            {weatherData.icon === 'partly-cloudy-day' && <BsCloudSun />}
-            <p className="italic">{`${weatherData.description}`}</p>
-          </span>
-          <span className="flex flex-row items-center space-x-2">
-            <BsThermometer />
-            <p>{`${weatherData.temperature}°C - føltes som ${weatherData.feelsLikeMin}°C`}</p>
-          </span>
-          <span className="flex flex-row items-center space-x-2">
-            <WiStrongWind />
-            <p>{`${weatherData.windspd}m/s, med kast oppe i ${weatherData.windgust}m/s`}</p>
-          </span>
+        <div className="mt-3">
+          <div className="flex flex-col space-y-2 float-right mb-5 sm:ml-8 sm:border-black sm:border p-3">
+            <span className="flex flex-row items-center space-x-2">
+              {weatherData.icon === 'rain' && <BsCloudRain />}
+              {weatherData.icon === 'cloudy' && <BsClouds />}
+              {weatherData.icon === 'snow' && <BsSnow />}
+              {weatherData.icon === 'clear-day' && <BsSun />}
+              {weatherData.icon === 'partly-cloudy-day' && <BsCloudSun />}
+              <p className="italic">{`${weatherData.description}`}</p>
+            </span>
+            <span className="flex flex-row items-center space-x-2">
+              <BsThermometer />
+              <p>{`${weatherData.temperature}°C - føltes som ${weatherData.feelsLikeMin}°C`}</p>
+            </span>
+            <span className="flex flex-row items-center space-x-2">
+              <WiStrongWind />
+              <p>{`${weatherData.windspd}m/s, med kast oppe i ${weatherData.windgust}m/s`}</p>
+            </span>
+          </div>
+
+          <PortableText value={stage.description} components={RichTextComponents} />
         </div>
       </div>
       <div>

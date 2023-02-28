@@ -30,8 +30,8 @@ export const getHistoricalWeather = async ({ lat, long, date }: WeatherProps): P
       return {
         temperature: res.days[0].temp,
         feelsLikeMin: res.days[0].feelslikemin,
-        windspd: res.days[0].windspeed,
-        windgust: res.days[0].windgust,
+        windspd: res.days[0].windspeed * 0.5144, // knot tom/s
+        windgust: res.days[0].windgust * 0.5144, // knot tom/s
         winddir: res.days[0].winddir,
         description: res.days[0].description,
         precip: res.days[0].precip,

@@ -9,8 +9,8 @@ const builder = imageUrlBuilder(client)
 export default function SubRoutes() {
   return (
     <div className={`mx-10 ${raleway.className}`}>
-      <span className="m-10 text-xl">
-        <p>Livet er en reise.</p>
+      <span className="my-10 text-xl flex flex-col">
+        <p className="font-bold mx-auto text-3xl sm:text-5xl">Livet er en reise</p>
         <br />
         <p>
           Hver og en av oss reiser på hver vår måte. Vi oppdager og opplever nye ting, med både

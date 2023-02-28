@@ -28,7 +28,7 @@ export default function ImageModal({
     <Dialog open={showModal} onClose={() => setShowModal(false)} className="relative z-50">
       <div className="fixed inset-0 flex items-center justify-center p-4">
         <Dialog.Panel className="w-full max-w-3xl rounded bg-white">
-          <Dialog.Backdrop className="fixed inset-0 bg-black opacity-30 z-49" />
+          <Dialog.Backdrop className="fixed inset-0 bg-black opacity-30 " />
           <AiOutlineCloseCircle
             className="absolute mt-4 ml-4"
             onClick={() => setShowModal(false)}

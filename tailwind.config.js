@@ -7,6 +7,9 @@ module.exports = {
   ],
   theme: {
     extend: {},
+    borderWidth: {
+      DEFAULT: '1px',
+    },
   },
   plugins: [require('@tailwindcss/line-clamp')],
   important: true,

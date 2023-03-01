@@ -1,0 +1,10 @@
+{
+  "temperature": 12.9,
+  "feelsLikeMin": 6.8,
+  "windspd": 12.4,
+  "windgust": 16.3,
+  "winddir": 18.5,
+  "description": "Clearing in the afternoon.",
+  "precip": 0,
+  "icon": "partly-cloudy-day"
+}

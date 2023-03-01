@@ -1,0 +1,10 @@
+{
+  "temperature": 14.6,
+  "feelsLikeMin": 11.3,
+  "windspd": 5.2,
+  "windgust": 11.3,
+  "winddir": 60,
+  "description": "Partly cloudy throughout the day with rain.",
+  "precip": 1.6,
+  "icon": "rain"
+}

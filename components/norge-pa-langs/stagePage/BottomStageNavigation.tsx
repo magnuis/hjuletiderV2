@@ -1,5 +1,6 @@
 import Link from 'next/link'
 import { HiOutlineArrowSmLeft, HiOutlineArrowSmRight } from 'react-icons/hi'
+import { useScrollToTop } from '../../../hooks/UseScrollToTop'
 
 interface BottomStageNavigationProps {
   dayNo: number

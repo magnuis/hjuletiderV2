@@ -1,6 +1,7 @@
 'use client'
 import { useState } from 'react'
 import { Image } from 'sanity'
+import { useScrollToTop } from '../../../hooks/UseScrollToTop'
 import ImageCard from '../../bilder/imageCard'
 import ImageModal from '../../bilder/imageModal'
 
@@ -17,7 +18,7 @@ export default function StageGallery({ images }: GalleryProps) {
   const prevImage = () => {
     setCurrentImage(currentImage === 0 ? images.length - 1 : currentImage - 1)
   }
-
+  useScrollToTop()
   return (
     <div>
       <div className={`grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2 pb-24`}>

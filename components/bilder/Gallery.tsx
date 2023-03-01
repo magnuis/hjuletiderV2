@@ -1,5 +1,6 @@
 'use client'
 import { useState } from 'react'
+import { useScrollToTop } from '../../hooks/UseScrollToTop'
 import ImageCard from './imageCard'
 import ImageModal from './imageModal'
 
@@ -16,7 +17,7 @@ export default function Gallery({ images }: GalleryProps) {
   const prevImage = () => {
     setCurrentImage(currentImage === 0 ? images.length - 1 : currentImage - 1)
   }
-
+  useScrollToTop()
   return (
     <div>
       <div className={`grid grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-2 pb-24`}>

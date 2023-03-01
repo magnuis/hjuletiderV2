@@ -3,12 +3,10 @@ import Link from 'next/link'
 
 import { usePathname } from 'next/navigation'
 import { GiEarthAfricaEurope } from 'react-icons/gi'
-import { useScrollToTop } from '../hooks/UseScrollToTop'
 import { raleway } from '../lib/fonts'
 
 export default function WideHeader() {
   const pathname = usePathname()
-  useScrollToTop()
   return (
     <div
       id="top"

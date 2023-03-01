@@ -1,4 +1,4 @@
-import { readFileSync, writeFileSync } from 'fs'
+import { readFileSync } from 'fs'
 import moment from 'moment'
 import { join } from 'path'
 import { Weather } from '../type'
@@ -28,8 +28,8 @@ export const getHistoricalWeather = async ({ lat, long, date }: WeatherProps): P
         return {
           temperature: res.days[0].temp,
           feelsLikeMin: res.days[0].feelslikemin,
-          windspd: res.days[0].windspeed * 0.5144, // knot to m/s
-          windgust: res.days[0].windgust * 0.5144, // knot to m/s
+          windspd: (res.days[0].windspeed * 0.5144 * 10) / 10, // knot to m/s
+          windgust: (res.days[0].windgust * 0.5144 * 10) / 10, // knot to m/s
           winddir: res.days[0].winddir,
           description: res.days[0].description,
           precip: res.days[0].precip,

@@ -15,7 +15,7 @@ export const getHistoricalWeather = async ({ lat, long, date }: WeatherProps): P
   const startDate = new Date(date).valueOf()
   let startDateString = moment(startDate).format('YYYY-MM-DD')
   try {
-    const data = readFileSync(join(process.cwd(), 'weather', `${startDateString}.json`), 'utf8')
+    const data = readFileSync(join(process.cwd(), 'data', `${startDateString}.json`), 'utf8')
     return JSON.parse(data)
   } catch (error) {
     startDateString = moment(startDate).format('YYYY-MM-DDTHH:mm:ss')

@@ -30,10 +30,10 @@ const getAccessToken = async () => {
 export const getActivities = async () => {
   var regex = new RegExp('Dag_[0-9]+')
 
-  if (process.env.NODE_ENV == 'development') {
-    const data = readFileSync(join(process.cwd(), 'lib', 'strava.json'), 'utf8')
-    return JSON.parse(data)
-  }
+  //if (process.env.NODE_ENV == 'development') {
+  const data = readFileSync(join(process.cwd(), 'data', 'strava.json'), 'utf8')
+  return JSON.parse(data)
+  //  }
 
   var regex = new RegExp('Dag_[0-9]+')
 

@@ -6,11 +6,12 @@ import Link from 'next/link'
 import { raleway } from '../lib/fonts'
 import { usePathname } from 'next/navigation'
 import { GiEarthAfricaEurope } from 'react-icons/gi'
+import { useScrollToTop } from '../hooks/UseScrollToTop'
 
 const MobileHeader = (): JSX.Element => {
   const pathname = usePathname()
   const [isOpen, setIsOpen] = React.useState(false)
-
+  useScrollToTop()
   return (
     <div
       className={`fixed top-0 w-screen z-20 

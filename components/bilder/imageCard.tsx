@@ -1,4 +1,3 @@
-'use client'
 import Image from 'next/image'
 import imageUrlBuilder from '@sanity/image-url'
 import { client } from '../../lib/sanity.client'

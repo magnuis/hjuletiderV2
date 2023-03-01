@@ -1,27 +1,26 @@
-# Next.js + Tailwind CSS Example
+# HjuletiderV2
 
-This example shows how to use [Tailwind CSS](https://tailwindcss.com/) [(v3.2)](https://tailwindcss.com/blog/tailwindcss-v3-2) with Next.js. It follows the steps outlined in the official [Tailwind docs](https://tailwindcss.com/docs/guides/nextjs).
+This is a travel blog to showcase some of my adventures in life. The project uses NextJS w/ app directory and Tailwind for frontent, and Sanity as CMS and database.
 
-## Deploy your own
+## Run locally
 
-Deploy the example using [Vercel](https://vercel.com?utm_source=github&utm_medium=readme&utm_campaign=next-example) or preview live with [StackBlitz](https://stackblitz.com/github/vercel/next.js/tree/canary/examples/with-tailwindcss)
+To run locally, one need a local .env file with the following variables:
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/git/external?repository-url=https://github.com/vercel/next.js/tree/canary/examples/with-tailwindcss&project-name=with-tailwindcss&repository-name=with-tailwindcss)
+```
+NEXT_PUBLIC_SANITY_PROJECT_ID
+NEXT_PUBLIC_SANITY_DATASET
+NEXT_PUBLIC_SANITY_API_VERSION
 
-## How to use
+NEXT_STRAVA_CLIENT_ID
+NEXT_STRAVA_CLIENT_SECRET
+NEXT_STRAVA_REFRESH_TOKEN
 
-Execute [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app) with [npm](https://docs.npmjs.com/cli/init), [Yarn](https://yarnpkg.com/lang/en/docs/cli/create/), or [pnpm](https://pnpm.io) to bootstrap the example:
+NEXT_WEATHER_CLIENT_ID
+NEXT_WEATHER_CLIENT_SECRET
+NEXT_VISUAL_CROSSING_KEY
 
-```bash
-npx create-next-app --example with-tailwindcss with-tailwindcss-app
 ```
 
-```bash
-yarn create next-app --example with-tailwindcss with-tailwindcss-app
-```
+## Weather
 
-```bash
-pnpm create next-app --example with-tailwindcss with-tailwindcss-app
-```
-
-Deploy it to the cloud with [Vercel](https://vercel.com/new?utm_source=github&utm_medium=readme&utm_campaign=next-example) ([Documentation](https://nextjs.org/docs/deployment)).
+The weather is originally fetched from [`visual crossing`](https://www.visualcrossing.com/). However, due to their not-so-generous API quotas, the data is stored locally and read from JSON files.

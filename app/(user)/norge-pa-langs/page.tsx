@@ -1,7 +1,7 @@
 import imageUrlBuilder from '@sanity/image-url'
 import { groq } from 'next-sanity'
 import Image from 'next/image'
-import StageCard from '../../../components/StageCard'
+import StageCard from '../../../components/norge-pa-langs/StageCard'
 import { client } from '../../../lib/sanity.client'
 import { Stage } from '../../../type'
 import { raleway } from '../../../lib/fonts'

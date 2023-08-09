@@ -15,6 +15,7 @@ export default function SubRoute(props: SubRouteProps) {
           alt={props.name}
           className="object-cover object-center lg:object-center w-full h-full"
           fill
+          sizes="60vw"
         />
         <div className="absolute bottom-0 w-full text-white p-5">
           <p>{props.name}</p>

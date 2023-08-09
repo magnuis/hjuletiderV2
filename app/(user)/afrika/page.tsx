@@ -13,6 +13,7 @@ export default function Page() {
       <div className="relative h-96 mb-10">
         <Image
           priority
+          sizes="100vw"
           className="absolute object-center object-cover top-0 h-full w-full opacity-100"
           src={builder
             .image(

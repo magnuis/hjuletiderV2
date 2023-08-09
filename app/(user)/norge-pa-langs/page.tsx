@@ -30,6 +30,7 @@ export default async function Page() {
             .url()}
           alt={'Framme på Lindesnes'}
           fill
+          sizes="100vw"
         />
       </div>
       <div className="max-w-7xl mx-auto flex flex-col space-y-8 px-10">

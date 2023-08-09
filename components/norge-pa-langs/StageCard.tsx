@@ -19,6 +19,7 @@ export default function StageCard({ stage }: StageProps) {
           alt={stage.title}
           className="object-cover object-left lg:object-center"
           fill
+          sizes="60vw"
         />
         <div className="absolute bottom-0 w-full text-white">
           <p className="text-xl m-2 font-bold">Dag nummer {stage.dayNo}</p>

@@ -19,6 +19,7 @@ export default function NotFound() {
             .url()}
           alt={'404 picture'}
           fill
+          sizes="100vw"
         />
       </div>
       <div className="mx-auto">

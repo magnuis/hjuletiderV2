@@ -19,7 +19,8 @@ export default function Page() {
               'https://cdn.sanity.io/images/14nn8v5u/production/bd787eb45b4bb21b7a5c8b31eed03f33d593014c-7837x3963.jpg'
             )
             .url()}
-          alt={'Rafting på Nilen'}
+          alt={'Brasil'}
+          sizes="100vw"
           fill
         />
       </div>

@@ -73,6 +73,7 @@ export default async function StagePage({ params: { slug, stravaData } }: StageP
           src={builder.image(stage.mainImage).url()}
           alt={stage.title}
           fill
+          sizes="100vw"
         />
       </div>
       <div className="mx-10 flex flex-col space-y-8 ">
@@ -129,9 +130,10 @@ export default async function StagePage({ params: { slug, stravaData } }: StageP
       <div>
         <MapCard strava={filteredStravaStage} />
       </div>
-      <div className="relative mx-auto flex flex-row space-x-10">
-        <BottomStageNavigation dayNo={stage.dayNo} />
-      </div>
+      {/* <div className=" mx-auto "> */}
+      {/* <div className="relative mx-auto flex flex-row space-x-10"> */}
+      <BottomStageNavigation dayNo={stage.dayNo} />
+      {/* </div> */}
     </div>
   )
 }

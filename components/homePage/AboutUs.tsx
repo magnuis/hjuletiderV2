@@ -18,6 +18,7 @@ export default function AboutUs() {
             .url()}
           alt="About us"
           fill
+          sizes="100vw"
         />
       </div>
     </div>

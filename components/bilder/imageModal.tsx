@@ -38,8 +38,7 @@ export default function ImageModal({
               src={builder.image(src).url()}
               alt={alt}
               className="object-center object-cover top-0 opacity-100 mx-auto"
-              width={300}
-              height={300}
+              sizes="80vw"
             />
             <hr className="mt-5 mb-3" />
             <p className="mx-auto">{alt}</p>

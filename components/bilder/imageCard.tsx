@@ -21,7 +21,7 @@ export default function ImageCard({
   return (
     <div className="mx-auto relative h-24 w-full sm:h-44 hover:cursor-pointer sm:opacity-95 hover:opacity-100 transition-transform duration-200 ease-out">
       <Image
-        src={builder.image(url).url()}
+        src={builder.width(300).height(300).image(url).url()}
         alt={alt ? alt : 'Bilde'}
         className="object-cover object-left lg:object-center"
         fill
@@ -29,6 +29,7 @@ export default function ImageCard({
           setShowModal(true)
           setCurrentImage(index)
         }}
+        sizes="20vw"
       />
     </div>
   )

@@ -19,7 +19,8 @@ export default function Page() {
               'https://cdn.sanity.io/images/14nn8v5u/production/bd787eb45b4bb21b7a5c8b31eed03f33d593014c-7837x3963.jpg'
             )
             .url()}
-          alt={'Rafting på Nilen'}
+          alt={'Brasil'}
+          sizes="100vw"
           fill
         />
       </div>
@@ -28,7 +29,7 @@ export default function Page() {
         <p className="text-5xl font-bold ">Brasil</p>
         <p>
           Høstsemesteret 2023 skal Magnus til Brasil på utveksling. Han skal gå på Universidade
-          Federal de Santa Catarina, i byen Florioanopolis. Når han ikke studerer skal han reise
+          Federal de Santa Catarina, i byen Florioanópolis. Når han ikke studerer skal han reise
           rundt i Brasil, og kanskje også i andre land i Sør-Amerika. Her kan du følge med på turen,
           og se bilder og videoer derfra.
         </p>

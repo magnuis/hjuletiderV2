@@ -29,7 +29,7 @@ export default function Page() {
         <p className="text-5xl font-bold ">Brasil</p>
         <p>
           Høstsemesteret 2023 skal Magnus til Brasil på utveksling. Han skal gå på Universidade
-          Federal de Santa Catarina, i byen Florioanopolis. Når han ikke studerer skal han reise
+          Federal de Santa Catarina, i byen Florioanópolis. Når han ikke studerer skal han reise
           rundt i Brasil, og kanskje også i andre land i Sør-Amerika. Her kan du følge med på turen,
           og se bilder og videoer derfra.
         </p>

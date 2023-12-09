@@ -82,11 +82,11 @@ const MobileMenu = ({ setIsOpen, pathname }: MobileMenuProps): JSX.Element => {
         <Link
           onClick={() => setIsOpen(false)}
           className={`${
-            pathname == '/brasil' ? 'text-blue-600' : 'text-black'
+            pathname == '/south-america' ? 'text-blue-600' : 'text-black'
           }  flex flex-row-reverse`}
-          href={'/brasil'}
+          href={'/south-america'}
         >
-          Brasil
+          Sør-Amerika
         </Link>
         <Link
           onClick={() => setIsOpen(false)}

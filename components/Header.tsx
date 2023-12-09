@@ -38,10 +38,12 @@ export default function WideHeader() {
               AFRIKA
             </Link>
             <Link
-              className={`${pathname?.includes('/brasil') ? 'text-blue-600' : 'text-black '} `}
-              href={'/brasil'}
+              className={`${
+                pathname?.includes('/south-america') ? 'text-blue-600' : 'text-black '
+              } `}
+              href={'/south-america'}
             >
-              BRASIL
+              SØR-AMERIKA
             </Link>
             <Link
               className={`${pathname?.includes('/bilder') ? 'text-blue-600' : 'text-black '} `}

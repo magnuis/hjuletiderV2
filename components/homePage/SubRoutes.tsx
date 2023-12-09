@@ -41,13 +41,13 @@ export default function SubRoutes() {
           name="Afrika"
         />
         <SubRoute
-          href="/brasil"
+          href="/south-america"
           imageUrl={builder
             .image(
               'https://cdn.sanity.io/images/14nn8v5u/production/bd787eb45b4bb21b7a5c8b31eed03f33d593014c-7837x3963.jpg'
             )
             .url()}
-          name="Brasil"
+          name="Sør-Amerika"
         />
         <SubRoute
           href="/bilder"

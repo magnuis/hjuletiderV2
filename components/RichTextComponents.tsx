@@ -6,8 +6,12 @@ export const RichTextComponents = {
   types: {
     image: ({ value }: any) => {
       return (
-        <div className="relative w-full h-96 m-10 mx-auto">
-          <Image className="object-contain" src={urlFor(value).url()} alt="Blog Post Image" fill />
+        <div className="relative w-full mb-8">
+          <img
+            className="mx-auto md:w-full flex-none rounded-lg md:rounded-2xl bg-gray-50 object-cover"
+            src={urlFor(value).format('webp').url()}
+            alt="Summer with Sissel Post Image"
+          />
         </div>
       )
     },

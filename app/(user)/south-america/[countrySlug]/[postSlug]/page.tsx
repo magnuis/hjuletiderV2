@@ -8,6 +8,7 @@ import { PortableText } from '@portabletext/react'
 import { RichTextComponents } from '../../../../../components/RichTextComponents'
 import { useRouter } from 'next/navigation'
 import StageGallery from '../../../../../components/norge-pa-langs/stagePage/StageGallery'
+import Link from 'next/link'
 
 const builder = imageUrlBuilder(client)
 
@@ -75,8 +76,14 @@ export default async function CountryPage({
           sizes="100vw"
         />
       </div>
-      <div className="mx-10 flex flex-col space-y-8 ">
+      <div className="mx-10 flex flex-col ">
         <h1 className="text-5xl font-bold mx-auto md:mt-12">{post.title}</h1>
+        <Link
+          href={`south-america/${countrySlug}`}
+          className="float-left md:-translate-y-5 trans mt-2 md:mt-0 underline italic text-blue-700"
+        >
+          <p>Tilbake</p>
+        </Link>
         <div className="mt-3">
           <PortableText value={post.body} components={RichTextComponents} />
         </div>

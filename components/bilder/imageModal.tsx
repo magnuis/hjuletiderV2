@@ -34,10 +34,10 @@ export default function ImageModal({
             onClick={() => setShowModal(false)}
           />
           <div className="relative mx-10 my-10 flex flex-col">
-            <Image
+            <img
               src={builder.image(src).url()}
               alt={alt}
-              className="object-center object-cover top-0 opacity-100 mx-auto"
+              className="object-center object-cover top-0 opacity-100 mx-auto w-full h-full"
               sizes="80vw"
             />
             <hr className="mt-5 mb-3" />

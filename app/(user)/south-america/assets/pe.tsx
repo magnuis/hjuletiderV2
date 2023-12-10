@@ -8,7 +8,6 @@ export default function Peru({ scaledHeight }: { scaledHeight: number }) {
   const originalWidth = 1000
   const scale = scaledHeight / originalHeight
   const scaledWidth = scale * originalWidth
-  console.log(scaledHeight)
   return (
     <svg
       viewBox={`0 0 ${originalWidth} ${originalHeight}`}

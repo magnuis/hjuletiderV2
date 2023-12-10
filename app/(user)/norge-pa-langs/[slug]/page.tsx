@@ -1,5 +1,5 @@
 import Image from 'next/image'
-import { Stage, stravaData, Weather } from '../../../../type'
+import { Stage, stravaData } from '../../../../type'
 import imageUrlBuilder from '@sanity/image-url'
 import { client } from '../../../../lib/sanity.client'
 import { groq } from 'next-sanity'

@@ -4,18 +4,23 @@ import { client } from '../../../lib/sanity.client'
 
 import Link from 'next/link'
 import { raleway } from '../../../lib/fonts'
-
-import brazil from './assets/br'
-import peru from './assets/pe'
-import Brazil from './assets/br'
-import Peru from './assets/pe'
-import Argentina from './assets/ar'
-import Bolivia from './assets/bo'
-import Uruguay from './assets/uy'
+import { groq } from 'next-sanity'
+import { Country } from '../../../type'
+import CountryNavCard from '../../../components/south-america/CountryNavCard'
 
 const builder = imageUrlBuilder(client)
 
-export default function Page() {
+export default async function Page() {
+  const query = groq`
+  *[_type=='country' && references(*[_type == 'continent' && continent == "Sør-Amerika"]._id)] {
+    ...,
+    continent -> {
+      continent
+    }
+  } | order(title asc)`
+
+  const countries: Country[] = await client.fetch(query)
+
   return (
     <div className={`flex flex-col space-y-6 w-full ${raleway.className}`}>
       <div className="relative h-96 mb-10">
@@ -36,31 +41,25 @@ export default function Page() {
         <span className="text-center w-full">
           <p className="text-5xl font-bold ">Sør-Amerika</p>
         </span>
-        <p>
+        <p className="md:text-lg">
           Høstsemesteret 2023 har Magnus vært på utveksling i Brasil. Han skal gikk på Universidade
           Federal de Santa Catarina, i byen Florioanópolis. Etter endt semester bærer ferden gjennom
           Chile, Bolivia og Peru, før et nytt semester starter i Barcelona. Her kan du se noe av
           opplevelsene fra et halvår i Sør-Amerika!
         </p>
-        <p>
+        <p className="md:text-lg">
           Ønsker du å se mer om andre turer kan du gå tilbake til
           <Link href={'/'}>
             <span className="ml-1 underline text-blue-700">forsiden</span>
           </Link>
         </p>
-        <div className="group flex flex-row">
-          <Brazil scaledHeight={150} />
-          <span className="flex flex-col ">
-            <h2 className="group-hover:scale-105 font-semibold text-xl">Brasil</h2>
-            <p className="group-hover:scale-105">Et land med dårlig mat</p>
-          </span>
+        <div className="grid grid-cols-1 md:grid-cols-2 mt-6 gap-x-14">
+          {countries.map((country: Country) => (
+            <Link href={`south-america/${country.slug.current}`} key={country._id}>
+              <CountryNavCard country={country} />
+            </Link>
+          ))}
         </div>
-        <Peru scaledHeight={150} />
-        <Argentina scaledHeight={150} />
-        <Bolivia scaledHeight={150} />
-        <Uruguay scaledHeight={150} />
-
-        <div className="max-w-96 max-h-96"></div>
       </div>
     </div>
   )

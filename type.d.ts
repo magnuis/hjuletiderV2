@@ -42,3 +42,32 @@ type Weather = {
   precip: number
   icon: string
 }
+
+interface Post extends Base {
+  title: string
+  slug: Slug
+  mainImage: Image
+  publishedAt: date
+  body: Block[]
+  shortDesc: string
+  images: Image[]
+}
+
+interface Country extends Base {
+  slug: Slug
+  randomFact: string
+  continent: {
+    continent: string
+  }
+  population: number
+  mainImage: Image
+  landscape: Image
+  body: Block[]
+  description: string
+  title: string
+  languages: string
+  areal: number
+  capital: string
+  englishName: string
+  posts: Post[]
+}

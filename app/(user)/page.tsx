@@ -6,7 +6,7 @@ export default function Page() {
   return (
     <div>
       <AboutUs />
-      <div className={`${inter.className} max-w-7xl mx-auto `}>
+      <div className={`${inter.className} max-w-5xl mx-auto `}>
         <SubRoutes />
       </div>
     </div>

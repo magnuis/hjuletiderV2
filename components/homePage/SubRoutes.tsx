@@ -10,7 +10,7 @@ export default function SubRoutes() {
   return (
     <div className={`mx-10 ${raleway.className}`}>
       <span className="my-10 text-xl flex flex-col">
-        <p className="font-bold mx-auto text-3xl sm:text-5xl">Livet er en reise</p>
+        {/* <p className="font-bold mx-auto text-3xl sm:text-5xl">Livet er en reise</p> */}
         <br />
         <p>
           Hver og en av oss reiser på hver vår måte. Vi oppdager og opplever nye ting, med både
@@ -32,15 +32,6 @@ export default function SubRoutes() {
           name="Norge på langs"
         />
         <SubRoute
-          href="/afrika"
-          imageUrl={builder
-            .image(
-              'https://cdn.sanity.io/images/14nn8v5u/production/106cc53733f83b98bc037f7621b42cb5951c6873-4272x2848.jpg'
-            )
-            .url()}
-          name="Afrika"
-        />
-        <SubRoute
           href="/south-america"
           imageUrl={builder
             .image(
@@ -48,6 +39,15 @@ export default function SubRoutes() {
             )
             .url()}
           name="Sør-Amerika"
+        />
+        <SubRoute
+          href="/afrika"
+          imageUrl={builder
+            .image(
+              'https://cdn.sanity.io/images/14nn8v5u/production/106cc53733f83b98bc037f7621b42cb5951c6873-4272x2848.jpg'
+            )
+            .url()}
+          name="Afrika"
         />
         <SubRoute
           href="/bilder"

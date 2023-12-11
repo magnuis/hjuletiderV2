@@ -61,13 +61,13 @@ export default async function CountryPage({
 
   if (!post) {
     return (
-      <div className="relative max-w-7xl mx-auto ">
+      <div className="relative max-w-5xl mx-auto ">
         <NotFound />
       </div>
     )
   }
   return (
-    <div className={`${raleway.className} relative max-w-7xl mx-auto flex flex-col space-y-6 `}>
+    <div className={`${raleway.className} relative max-w-5xl mx-auto flex flex-col space-y-6 `}>
       <div className="relative w-full h-96">
         <img
           className="absolute object-center object-cover top-0 h-full w-full opacity-100"

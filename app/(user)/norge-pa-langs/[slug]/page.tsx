@@ -49,7 +49,7 @@ export default async function StagePage({ params: { slug, stravaData } }: StageP
   const stage: Stage = await client.fetch(query, { slug })
   if (!stage) {
     return (
-      <div className="relative max-w-7xl mx-auto ">
+      <div className="relative max-w-5xl mx-auto ">
         <NotFound />
       </div>
     )
@@ -65,7 +65,7 @@ export default async function StagePage({ params: { slug, stravaData } }: StageP
   })
 
   return (
-    <div className={`${raleway.className} relative max-w-7xl mx-auto flex flex-col space-y-6 `}>
+    <div className={`${raleway.className} relative max-w-5xl mx-auto flex flex-col space-y-6 `}>
       <div className="relative w-full h-96">
         <Image
           priority

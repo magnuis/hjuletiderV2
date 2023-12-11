@@ -24,7 +24,7 @@ export default function Page() {
           fill
         />
       </div>
-      <div className="max-w-7xl mx-auto px-10 flex flex-col space-y-8">
+      <div className="max-w-5xl mx-auto px-10 flex flex-col space-y-8">
         <hr className="border-black" />
         <p className="text-5xl font-bold ">Afrika</p>
         <p>

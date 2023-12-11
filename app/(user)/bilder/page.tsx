@@ -3,20 +3,17 @@ import React from 'react'
 import imageUrlBuilder from '@sanity/image-url'
 import { client } from '../../../lib/sanity.client'
 import { groq } from 'next-sanity'
-import ImageCard from '../../../components/bilder/imageCard'
-import { GiAfrica, GiBrazilFlag } from 'react-icons/gi'
-import { MdDirectionsBike } from 'react-icons/md'
 import Gallery from '../../../components/bilder/Gallery'
 const builder = imageUrlBuilder(client)
 
 export default async function Page() {
   const query = groq`
-*[_type=='sanity.imageAsset'] {
-...,
-} `
+    *[_type == 'sanity.imageAsset' && !references(*[_type == 'media.tag' && name.current == "no-show"]._id)] {
+      ...,
+    }`
   const images = await client.fetch(query)
   return (
-    <div className="flex flex-col max-w-7xl mx-auto p-5 md:p-10 gap-y-6">
+    <div className="flex flex-col max-w-5xl mx-auto p-5 md:p-10 gap-y-6">
       {/* <div className="flex flex-col sm:flex-row gap-x-16 ml-4">
         <span className="flex flex-row gap-x-2 items-center">
           <input type="checkbox" className="cursor-pointer"></input>

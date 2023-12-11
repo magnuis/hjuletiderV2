@@ -33,7 +33,7 @@ export default async function Page() {
           sizes="100vw"
         />
       </div>
-      <div className="max-w-7xl mx-auto flex flex-col space-y-8 px-10">
+      <div className="max-w-5xl mx-auto flex flex-col space-y-8 px-10">
         <hr className="border-black" />
         <span className={`${raleway.className} text-lg lg:text-xl`}>
           <p className="text-5xl font-bold ">Norge på langs</p>

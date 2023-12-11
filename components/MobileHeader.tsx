@@ -5,7 +5,7 @@ import Hamburger from 'hamburger-react'
 import Link from 'next/link'
 import { raleway } from '../lib/fonts'
 import { usePathname } from 'next/navigation'
-import { GiEarthAfricaEurope } from 'react-icons/gi'
+import logo from './logo.png'
 
 const MobileHeader = (): JSX.Element => {
   const pathname = usePathname()
@@ -21,7 +21,7 @@ const MobileHeader = (): JSX.Element => {
         <div className="flex justify-between">
           <Link href={'/'}>
             {' '}
-            <GiEarthAfricaEurope className="text-gray-900 h-8 w-8 -translate-y-2" />
+            <img className="h-8" src={logo.src} alt="logo" />
           </Link>
 
           {
@@ -72,21 +72,21 @@ const MobileMenu = ({ setIsOpen, pathname }: MobileMenuProps): JSX.Element => {
         <Link
           onClick={() => setIsOpen(false)}
           className={`${
-            pathname == '/afrika' ? 'text-blue-600' : 'text-black'
-          }  flex flex-row-reverse`}
-          href={'/afrika'}
-        >
-          Afrika
-        </Link>
-        <hr />
-        <Link
-          onClick={() => setIsOpen(false)}
-          className={`${
             pathname == '/south-america' ? 'text-blue-600' : 'text-black'
           }  flex flex-row-reverse`}
           href={'/south-america'}
         >
           Sør-Amerika
+        </Link>
+        <hr />
+        <Link
+          onClick={() => setIsOpen(false)}
+          className={`${
+            pathname == '/afrika' ? 'text-blue-600' : 'text-black'
+          }  flex flex-row-reverse`}
+          href={'/afrika'}
+        >
+          Afrika
         </Link>
         <Link
           onClick={() => setIsOpen(false)}

@@ -48,7 +48,7 @@ export default async function CountryPage({ params: { countrySlug } }: CountryPr
 
   if (!country) {
     return (
-      <div className="relative max-w-7xl mx-auto ">
+      <div className="relative max-w-5xl mx-auto ">
         <NotFound />
       </div>
     )
@@ -56,18 +56,18 @@ export default async function CountryPage({ params: { countrySlug } }: CountryPr
   const geoData = await getCountryByName(country.englishName)
   const sizeToNorwayRatio = Math.round((country.areal / 385207) * 10) / 10
   return (
-    <div className={`${raleway.className} relative max-w-7xl mx-auto flex flex-col space-y-6 `}>
+    <div className={`${raleway.className} relative max-w-5xl mx-auto flex flex-col space-y-6 `}>
       <div className="relative w-full h-96">
         <img
           className="absolute object-center object-cover top-0 h-full w-full opacity-100"
-          src={builder.image(country.landscape).width(1000).url()}
+          src={builder.image(country.landscape).url()}
           alt={country.title}
           sizes="100vw"
         />
       </div>
       <div className="mx-10 flex flex-col md:space-y-8 ">
         <h1 className="text-5xl font-bold mx-auto md:mt-16">{country.title}</h1>
-        <div className="md:mt-3">
+        <div className="md:mt-8">
           <div className="flex flex-col float-right mb-5 md:ml-8">
             <div className="flex flex-col space-y-2 md:border-black md:border p-3 max-w-[385px]">
               <div className="max-w-[100px] max-h-[100px] mx-auto mb-4 md:mb-0">
@@ -78,26 +78,26 @@ export default async function CountryPage({ params: { countrySlug } }: CountryPr
                 />
               </div>
 
-              <span className="border-t-black border-t pt-2 flex flex-row items-center space-x-2">
-                <GiCapitol />
+              <span className="border-t-black pt-2 border-t flex flex-row items-center space-x-2">
+                <GiCapitol className={''} />
                 <p>{`Hovedstad: ${geoData.capital}`}</p>
               </span>
-              <span className="border-t-black border-t pt-2 flex flex-row items-center space-x-2">
-                <IoPeopleOutline />
+              <span className="flex flex-row items-start space-x-2">
+                <IoPeopleOutline className={'translate-y-1'} />
                 <p>{`Befolkning: ${
                   Math.round((geoData.population / 1000000) * 100) / 100
                 } millioner`}</p>
               </span>
-              <span className="flex flex-row items-center space-x-2">
-                <IoChatbubbleOutline />
+              <span className="flex flex-row items-start space-x-2">
+                <IoChatbubbleOutline className={'translate-y-1'} />
                 <p>{`Språk: ${country.languages}`}</p>
               </span>
-              <span className="flex flex-row items-center space-x-2">
-                <IoIosResize />
+              <span className="flex flex-row items-start space-x-2">
+                <IoIosResize className={'translate-y-1'} />
                 <p>{`${sizeToNorwayRatio} ganger større enn Norge`}</p>
               </span>
-              <span className="flex flex-row items-center space-x-2">
-                <FaRegLightbulb />
+              <span className="flex flex-row items-start space-x-2 justify-start">
+                <FaRegLightbulb className={'translate-y-1'} />
                 <p>{`${country.randomFact}`}</p>
               </span>
             </div>

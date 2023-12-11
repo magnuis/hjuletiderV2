@@ -85,6 +85,7 @@ export default async function CountryPage({
           <p>Tilbake</p>
         </Link>
         <div className="mt-3">
+          <p className="text-lg md:text-xl mb-8">{post.shortDesc}</p>
           <PortableText value={post.body} components={RichTextComponents} />
         </div>
       </div>
